@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-import com.sun.jdi.connect.spi.Connection;
+import model.*;
+import controller.*;
+import java.awt.event.ActionListener;
+import view.Login;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import java.sql.*;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-import java.sql.PreparedStatement;
-import javax.swing.JTextField;
+
 //import Controller.*;
 //import Model_prac.*;
 import java.awt.event.ActionListener;
@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
  * @author neera
  */
 public class RegisterPage extends javax.swing.JFrame {
+    RegistrationModel model;
 
     //RegisterModel model;
     /**
@@ -26,6 +27,7 @@ public class RegisterPage extends javax.swing.JFrame {
      */
     public RegisterPage() {
         initComponents();
+        
     }
     
 //    public RegisterModel getUser(){
@@ -33,6 +35,13 @@ public class RegisterPage extends javax.swing.JFrame {
 //        return model;
 //    
 //    }
+    
+public RegistrationModel getUser()
+{
+   // model=new RegisterModel(txtusername.getText(),txtpassword.getText());
+    model=new RegistrationModel(txtFirstName.getText(),txtLastName.getText(),txtUsername.getText(),txtStaffId.getText(),txtPassword.getText(),txtConfirmPassword.getText());
+    return model;
+}
     
     public void setMessage(String msg){
         JOptionPane.showMessageDialog(this,msg);
@@ -44,7 +53,7 @@ public class RegisterPage extends javax.swing.JFrame {
 
         logo = new javax.swing.JLabel();
         line = new javax.swing.JLabel();
-        btn_login = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
         register = new javax.swing.JLabel();
         firstname = new javax.swing.JLabel();
         lastname = new javax.swing.JLabel();
@@ -53,14 +62,14 @@ public class RegisterPage extends javax.swing.JFrame {
         create_password = new javax.swing.JLabel();
         reenter_password = new javax.swing.JLabel();
         existingUSer = new javax.swing.JLabel();
-        txt_fname = new javax.swing.JTextField();
-        txt_lname = new javax.swing.JTextField();
-        txt_username = new javax.swing.JTextField();
-        txt_staffID = new javax.swing.JTextField();
-        txt_password = new javax.swing.JPasswordField();
-        txt_conPassword = new javax.swing.JPasswordField();
-        btn_reset = new javax.swing.JButton();
-        btn_register = new javax.swing.JButton();
+        txtFirstName = new javax.swing.JTextField();
+        txtLastName = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
+        txtStaffId = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        txtConfirmPassword = new javax.swing.JPasswordField();
+        resetButton = new javax.swing.JButton();
+        btnRegister = new javax.swing.JButton();
         regiser_form_enclosure = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
@@ -74,18 +83,18 @@ public class RegisterPage extends javax.swing.JFrame {
         line.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/images/line.png"))); // NOI18N
         getContentPane().add(line, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 122, 1074, 14));
 
-        btn_login.setBackground(new java.awt.Color(3, 175, 228));
-        btn_login.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
-        btn_login.setForeground(new java.awt.Color(255, 255, 255));
-        btn_login.setText("Login");
-        btn_login.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btn_login.setBorderPainted(false);
-        btn_login.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setBackground(new java.awt.Color(3, 175, 228));
+        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("Login");
+        btnLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnLogin.setBorderPainted(false);
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_loginActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 460, 107, 50));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 460, 107, 50));
 
         register.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
         register.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,49 +136,59 @@ public class RegisterPage extends javax.swing.JFrame {
         existingUSer.setText("Existing User?");
         getContentPane().add(existingUSer, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 370, -1, -1));
 
-        txt_fname.setText("Enter First Name");
-        getContentPane().add(txt_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 348, 249, 32));
+        txtFirstName.setText("Enter First Name");
+        getContentPane().add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 348, 249, 32));
 
-        txt_lname.setText("Enter Last Name");
-        getContentPane().add(txt_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 434, 249, 32));
+        txtLastName.setText("Enter Last Name");
+        getContentPane().add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 434, 249, 32));
 
-        txt_username.setText("Enter Username");
-        getContentPane().add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 526, 249, 32));
-
-        txt_staffID.setText("Enter StaffId");
-        getContentPane().add(txt_staffID, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 618, 249, 32));
-
-        txt_password.setText("Enter Password");
-        getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 249, 32));
-
-        txt_conPassword.setText("Confirm PAssword");
-        txt_conPassword.addActionListener(new java.awt.event.ActionListener() {
+        txtUsername.setText("Enter Username");
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_conPasswordActionPerformed(evt);
+                txtUsernameActionPerformed(evt);
             }
         });
-        getContentPane().add(txt_conPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 435, 249, 32));
+        getContentPane().add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 526, 249, 32));
 
-        btn_reset.setBackground(new java.awt.Color(239, 185, 103));
-        btn_reset.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        btn_reset.setForeground(new java.awt.Color(255, 255, 255));
-        btn_reset.setText("Reset");
-        btn_reset.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btn_reset.setBorderPainted(false);
-        getContentPane().add(btn_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 514, 232, 41));
+        txtStaffId.setText("Enter StaffId");
+        getContentPane().add(txtStaffId, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 618, 249, 32));
 
-        btn_register.setBackground(new java.awt.Color(212, 45, 45));
-        btn_register.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        btn_register.setForeground(new java.awt.Color(255, 255, 255));
-        btn_register.setText("Register");
-        btn_register.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btn_register.setBorderPainted(false);
-        btn_register.addActionListener(new java.awt.event.ActionListener() {
+        txtPassword.setText("Enter Password");
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 249, 32));
+
+        txtConfirmPassword.setText("Confirm PAssword");
+        txtConfirmPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_registerActionPerformed(evt);
+                txtConfirmPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_register, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 561, 232, 51));
+        getContentPane().add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 435, 249, 32));
+
+        resetButton.setBackground(new java.awt.Color(239, 185, 103));
+        resetButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        resetButton.setForeground(new java.awt.Color(255, 255, 255));
+        resetButton.setText("Reset");
+        resetButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        resetButton.setBorderPainted(false);
+        resetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(resetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 514, 232, 41));
+
+        btnRegister.setBackground(new java.awt.Color(212, 45, 45));
+        btnRegister.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegister.setText("Register");
+        btnRegister.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnRegister.setBorderPainted(false);
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 561, 232, 51));
 
         regiser_form_enclosure.setBackground(new java.awt.Color(0, 0, 0));
         regiser_form_enclosure.setForeground(new java.awt.Color(241, 254, 255));
@@ -185,25 +204,44 @@ public class RegisterPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_conPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_conPasswordActionPerformed
+    private void txtConfirmPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfirmPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_conPasswordActionPerformed
+    }//GEN-LAST:event_txtConfirmPasswordActionPerformed
 
-    private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
-       //RegisterContoller rc = new RegisterController(this);
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+       RegistrationController r=new RegistrationController(this);
                                                   
 
     
                                        
-    }//GEN-LAST:event_btn_registerActionPerformed
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
-    private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_loginActionPerformed
+        Login lo = new Login();
+        lo.setVisible(true);
+        this.dispose();  
+        
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsernameActionPerformed
+
+    private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
+        // TODO add your handling code here:
+            txtFirstName.setText("");
+            txtLastName.setText("");
+            txtUsername.setText("");
+            txtStaffId.setText("");
+            txtPassword.setText("");
+            txtConfirmPassword.setText("");
+    }//GEN-LAST:event_resetButtonActionPerformed
 
     
-public void addLoginListener(ActionListener log){
-    //btn_register.addActionListener(log);
+public void addLoginListner(ActionListener log)
+{
+    btnRegister.addActionListener(log);
 }
     /**
      * @param args the command line arguments
@@ -291,9 +329,8 @@ public void addLoginListener(ActionListener log){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton btn_login;
-    private javax.swing.JButton btn_register;
-    private javax.swing.JButton btn_reset;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnRegister;
     private javax.swing.JLabel create_password;
     private javax.swing.JLabel existingUSer;
     private javax.swing.JLabel firstname;
@@ -303,13 +340,14 @@ public void addLoginListener(ActionListener log){
     private javax.swing.JLabel reenter_password;
     private javax.swing.JLabel regiser_form_enclosure;
     private javax.swing.JLabel register;
+    private javax.swing.JButton resetButton;
     private javax.swing.JLabel staffID;
-    private javax.swing.JPasswordField txt_conPassword;
-    private javax.swing.JTextField txt_fname;
-    private javax.swing.JTextField txt_lname;
-    private javax.swing.JPasswordField txt_password;
-    private javax.swing.JTextField txt_staffID;
-    private javax.swing.JTextField txt_username;
+    private javax.swing.JPasswordField txtConfirmPassword;
+    private javax.swing.JTextField txtFirstName;
+    private javax.swing.JTextField txtLastName;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtStaffId;
+    private javax.swing.JTextField txtUsername;
     private javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
 }
