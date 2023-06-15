@@ -167,7 +167,7 @@ public RegistrationModel getUser()
         resetButton.setBackground(new java.awt.Color(239, 185, 103));
         resetButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         resetButton.setForeground(new java.awt.Color(255, 255, 255));
-        resetButton.setText("Reset");
+        resetButton.setText("Clear");
         resetButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         resetButton.setBorderPainted(false);
         resetButton.addActionListener(new java.awt.event.ActionListener() {
