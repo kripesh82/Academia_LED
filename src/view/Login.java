@@ -39,11 +39,12 @@ public class Login extends javax.swing.JFrame {
         username = new javax.swing.JLabel();
         password = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
+        btnClear = new javax.swing.JButton();
         btnRegister = new javax.swing.JButton();
         line = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
-        login_form_enclosure = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
+        login_form_enclosure = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,20 +62,31 @@ public class Login extends javax.swing.JFrame {
         Login_title.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
         Login_title.setForeground(new java.awt.Color(255, 255, 255));
         Login_title.setText("Login");
-        getContentPane().add(Login_title, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 219, -1, -1));
+        getContentPane().add(Login_title, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, -1, -1));
 
-        username.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 25)); // NOI18N
+        username.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 20)); // NOI18N
         username.setForeground(new java.awt.Color(255, 255, 255));
         username.setText("Username");
-        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 304, -1, -1));
+        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 310, 410, 46));
 
-        password.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 25)); // NOI18N
+        password.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 20)); // NOI18N
         password.setForeground(new java.awt.Color(255, 255, 255));
         password.setText("Password");
-        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(684, 445, -1, -1));
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 408, -1, -1));
 
         txtUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getContentPane().add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 350, 420, 46));
+        getContentPane().add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 350, 410, 46));
+
+        btnClear.setBackground(new java.awt.Color(239, 200, 99));
+        btnClear.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        btnClear.setForeground(new java.awt.Color(255, 255, 255));
+        btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(968, 535, 122, 41));
 
         btnRegister.setBackground(new java.awt.Color(235, 47, 47));
         btnRegister.setFont(new java.awt.Font("Segoe UI Semibold", 0, 25)); // NOI18N
@@ -104,16 +116,16 @@ public class Login extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1006, 608, 107, 50));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(916, 590, 174, 56));
+
+        txtPassword.setText("jPasswordField1");
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 441, 409, 46));
 
         login_form_enclosure.setBackground(new java.awt.Color(0, 0, 0));
         login_form_enclosure.setForeground(new java.awt.Color(241, 254, 255));
         login_form_enclosure.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/images/login_form_enclosure.png"))); // NOI18N
         login_form_enclosure.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createCompoundBorder(), null));
-        getContentPane().add(login_form_enclosure, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 511, 502));
-
-        txtPassword.setText("jPasswordField1");
-        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 495, 409, 46));
+        getContentPane().add(login_form_enclosure, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 183, 511, 502));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/images/background.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 800));
@@ -130,9 +142,15 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-         LoginController l = new LoginController(this); 
+         LoginController l = new LoginController(this);
 
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        // TODO add your handling code here:\
+        txtUsername.setText("");
+        txtPassword.setText("");
+    }//GEN-LAST:event_btnClearActionPerformed
     public LoginModel getUser(){
     logMod=new LoginModel(txtUsername.getText(),txtPassword.getText());  
     return logMod;
@@ -183,6 +201,7 @@ public void addLoginListener(ActionListener log){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Login_title;
+    private javax.swing.JButton btnClear;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel jLabel2;
