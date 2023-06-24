@@ -37,6 +37,10 @@ public class LoginController {
                 logmod=logview.getUser();   
                 if(checkUser(logmod)){       
                     logview.setMessage("login successfully");
+                    Dashboard db = new Dashboard();
+                    db.setVisible(true);
+                    logview.dispose();
+                    
                 }
                 else{
                     logview.setMessage("invalid credentials");
@@ -52,7 +56,7 @@ public class LoginController {
         }
          public boolean checkUser(LoginModel user) throws Exception{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mvcprac","root","iphone53g@");
+            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mvcprac","root","nirkr~");
             String query="select * from users where username='"+user.getUsername()+"' AND password='"+user.getPassword()+"'";
             try{
                 stmt=conn.createStatement();

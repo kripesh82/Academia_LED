@@ -55,7 +55,7 @@ public class RegistrationController {
         public boolean checkUser(RegistrationModel user) throws Exception {
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mvcprac", "root", "iphone53g@");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mvcprac", "root", "nirkr~");
 
         
         String checkUsernameQuery = "SELECT * FROM users WHERE username = ?";

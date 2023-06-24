@@ -43,8 +43,6 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 1290));
-        setPreferredSize(new java.awt.Dimension(1280, 800));
         setSize(new java.awt.Dimension(1280, 800));
 
         jPanel1.setBackground(new java.awt.Color(31, 102, 155));
@@ -58,6 +56,7 @@ public class Dashboard extends javax.swing.JFrame {
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Yi Huan");
         jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextField1.setCaretColor(new java.awt.Color(39, 68, 114));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,6 +156,11 @@ public class Dashboard extends javax.swing.JFrame {
         btn_studentDataEntry.setForeground(new java.awt.Color(255, 255, 255));
         btn_studentDataEntry.setText("Student Data Entry");
         btn_studentDataEntry.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btn_studentDataEntry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_studentDataEntryActionPerformed(evt);
+            }
+        });
 
         btn_marksheet.setBackground(new java.awt.Color(34, 107, 158));
         btn_marksheet.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
@@ -252,6 +256,13 @@ public class Dashboard extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_studentDataEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_studentDataEntryActionPerformed
+        // TODO add your handling code here:
+        StudentDataEntry sde = new StudentDataEntry();
+        sde.setVisible(true);
+        this.dispose();  
+    }//GEN-LAST:event_btn_studentDataEntryActionPerformed
 
     /**
      * @param args the command line arguments
