@@ -37,6 +37,10 @@ public class LoginController {
                 logmod=logview.getUser();   
                 if(checkUser(logmod)){       
                     logview.setMessage("login successfully");
+                    Dashboard db = new Dashboard();
+                    db.setVisible(true);
+                    logview.dispose();
+                    
                 }
                 else{
                     logview.setMessage("invalid credentials");
