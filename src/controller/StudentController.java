@@ -38,7 +38,7 @@ public class StudentController implements ActionListener {
         
         this.stupage.btnAdd.addActionListener(this);
         this.stupage.btnUpdate.addActionListener(this);
-        this.stupage.btnDelete.addActionListener(this);
+        this.stupage.jButtonDelete.addActionListener(this);
         this.stupage.btnClear.addActionListener(this);
         this.stupage.btnSearch.addActionListener(this);
         this.stupage.btnRefresh.addActionListener(this);
@@ -109,7 +109,7 @@ public class StudentController implements ActionListener {
             
         }
         
-        if(e.getSource() == stupage.btnDelete)
+        if(e.getSource() == stupage.jButtonDelete)
         {
             if (validateIDField()) {
                 mod.setStudent_id(Integer.parseInt(stupage.txtID.getText()));
