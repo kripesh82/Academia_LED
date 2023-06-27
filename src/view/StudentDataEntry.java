@@ -114,11 +114,21 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButtonRefresh = new javax.swing.JButton();
         jButtonPrint = new javax.swing.JButton();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        background_Box = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 800));
 
         jPanel1.setBackground(new java.awt.Color(31, 102, 155));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1280, 800));
 
         jPanel2.setBackground(new java.awt.Color(39, 68, 114));
 
@@ -425,8 +435,10 @@ public class StudentDataEntry extends javax.swing.JFrame {
 
         jTabbedPane2.setBackground(new java.awt.Color(15, 92, 139));
         jTabbedPane2.setForeground(new java.awt.Color(255, 255, 255));
+        jTabbedPane2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
 
         mainPanel1.setBackground(new java.awt.Color(15, 92, 139));
+        mainPanel1.setPreferredSize(new java.awt.Dimension(1280, 800));
 
         jLabel11.setBackground(new java.awt.Color(78, 171, 202));
         jLabel11.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
@@ -809,7 +821,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
                         .addGap(18, 18, 18))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(348, Short.MAX_VALUE))))
+                        .addContainerGap(491, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -848,11 +860,58 @@ public class StudentDataEntry extends javax.swing.JFrame {
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(panel_studentForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Student Result ", mainPanel1);
-        jTabbedPane2.addTab("Marksheet", jTabbedPane3);
+
+        jPanel7.setBackground(new java.awt.Color(15, 92, 139));
+        jPanel7.setPreferredSize(new java.awt.Dimension(1280, 800));
+        jPanel7.setRequestFocusEnabled(false);
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/MarksheetPrintPage.png"))); // NOI18N
+        jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 600));
+
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 990, 600));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Marksheet");
+        jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 46, -1, 33));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Enter Student ID to search result");
+        jPanel7.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
+
+        jButton1.setBackground(new java.awt.Color(37, 184, 246));
+        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Search Result");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(37, 184, 246), new java.awt.Color(37, 184, 246), null, null));
+        jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 100, 40));
+
+        jButton2.setBackground(new java.awt.Color(73, 166, 105));
+        jButton2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Generate Marksheet");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(112, 200, 142), new java.awt.Color(112, 200, 142), null, null));
+        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 160, 40));
+
+        jTextField2.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel7.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 370, 30));
+
+        background_Box.setBackground(new java.awt.Color(77, 119, 155));
+        background_Box.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        background_Box.setForeground(new java.awt.Color(255, 255, 255));
+        background_Box.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        background_Box.setOpaque(true);
+        jPanel7.add(background_Box, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 174, 418, 213));
+
+        jTabbedPane2.addTab("Marksheet", jPanel7);
 
         jTabbedPane1.addTab("Result", jTabbedPane2);
 
@@ -867,7 +926,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1500, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -876,12 +935,12 @@ public class StudentDataEntry extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 3, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -992,6 +1051,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel background_Box;
     public javax.swing.JButton btnAdd;
     public javax.swing.JButton btnClear;
     public javax.swing.JButton btnPrint;
@@ -999,6 +1059,8 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JButton btnSearch;
     public javax.swing.JButton btnUpdate;
     private javax.swing.JLabel firstName;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     public javax.swing.JButton jButtonAdd;
     public javax.swing.JButton jButtonClear;
     public javax.swing.JButton jButtonDelete;
@@ -1011,6 +1073,9 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
@@ -1030,14 +1095,16 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane3;
     public javax.swing.JTable jTable;
     public javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     public javax.swing.JTextField jTextFieldCourse1;
     public javax.swing.JTextField jTextFieldCourse2;
     public javax.swing.JTextField jTextFieldCourse3;
