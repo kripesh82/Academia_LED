@@ -6,11 +6,12 @@ package view;
 
 import controller.StudentController;
 import controller.ResultController;
+import controller.MarksheetController;
 import DAO.StudentDAO;
 import DAO.ResultDAO;
+import DAO.MarksheetDAO;
 import model.StudentModel;
 import model.ResultModel;
-
 /**
  *
  * @author neera
@@ -18,7 +19,8 @@ import model.ResultModel;
 public class StudentDataEntry extends javax.swing.JFrame {
     private StudentController controller;
     private ResultController controller2;
-
+    private MarksheetController controller3;
+    
     /**
      * Creates new form Attendance
      */
@@ -28,12 +30,15 @@ public class StudentDataEntry extends javax.swing.JFrame {
         ResultModel model2=new ResultModel();
         ResultDAO dao2=new ResultDAO();
         StudentDAO dao = new StudentDAO();
+        MarksheetDAO markDao= new MarksheetDAO();
         
         controller = new StudentController(model, dao, this);        
         controller.start();
         
         controller2=new ResultController(model2,dao2,this);
         controller2.start2();
+        controller3= new MarksheetController(model2,markDao,this);
+        controller3.start1();        
     }
 
     /**
@@ -115,14 +120,13 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jButtonRefresh = new javax.swing.JButton();
         jButtonPrint = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        percentageSymbol = new javax.swing.JLabel();
+        jPanelMarksheet = new javax.swing.JPanel();
         marksheetTitle = new javax.swing.JLabel();
-        marksInput1 = new javax.swing.JLabel();
-        marksInput2 = new javax.swing.JLabel();
-        marksInput3 = new javax.swing.JLabel();
-        marksInput4 = new javax.swing.JLabel();
-        marksInput5 = new javax.swing.JLabel();
+        jLabelmarkCourse1 = new javax.swing.JLabel();
+        jLabelmarkCourse2 = new javax.swing.JLabel();
+        jLabelmarkCourse3 = new javax.swing.JLabel();
+        jLabelmarkCourse4 = new javax.swing.JLabel();
+        jLabelmarkPercentage = new javax.swing.JLabel();
         passMarksSub5 = new javax.swing.JLabel();
         passMarksSub4 = new javax.swing.JLabel();
         passMarksSub3 = new javax.swing.JLabel();
@@ -138,7 +142,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
         sub2_Input = new javax.swing.JLabel();
         sub3_Input = new javax.swing.JLabel();
         subject5_Input = new javax.swing.JLabel();
-        percentageObtainedInput = new javax.swing.JLabel();
+        jLabelmarkCourse5 = new javax.swing.JLabel();
         totalPercentageInput = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -148,24 +152,23 @@ public class StudentDataEntry extends javax.swing.JFrame {
         remarksInput = new javax.swing.JLabel();
         studentInfo_Title = new javax.swing.JLabel();
         studentInfo_Title1 = new javax.swing.JLabel();
-        sIDInput = new javax.swing.JLabel();
-        sNameInput = new javax.swing.JLabel();
-        rankInput1 = new javax.swing.JLabel();
+        jLabelmarkStdID = new javax.swing.JLabel();
+        jLabelmarkStdName = new javax.swing.JLabel();
+        jLabelmarkRank = new javax.swing.JLabel();
         rank = new javax.swing.JLabel();
         sid = new javax.swing.JLabel();
         sname = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        jLabelMarksheet = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        jButtonmarkSearch = new javax.swing.JButton();
+        jButtonmarkPrint = new javax.swing.JButton();
+        jTextFieldmarkStdID = new javax.swing.JTextField();
         background_Box = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 800));
 
         jPanel1.setBackground(new java.awt.Color(31, 102, 155));
         jPanel1.setMaximumSize(new java.awt.Dimension(1280, 800));
@@ -910,178 +913,172 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jPanel7.setRequestFocusEnabled(false);
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        percentageSymbol.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        percentageSymbol.setForeground(new java.awt.Color(255, 255, 255));
-        percentageSymbol.setText("%");
-        percentageSymbol.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(percentageSymbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 540, 30, 30));
+        jPanelMarksheet.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         marksheetTitle.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
         marksheetTitle.setForeground(new java.awt.Color(46, 85, 148));
         marksheetTitle.setText("Marksheet");
-        jPanel8.add(marksheetTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 220, 30));
+        jPanelMarksheet.add(marksheetTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 220, 30));
 
-        marksInput1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(marksInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 190, 20, 20));
+        jLabelmarkCourse1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelMarksheet.add(jLabelmarkCourse1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 190, 40, 20));
 
-        marksInput2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(marksInput2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 230, 20, 20));
+        jLabelmarkCourse2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelMarksheet.add(jLabelmarkCourse2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 230, 40, 20));
 
-        marksInput3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(marksInput3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 270, 20, 20));
+        jLabelmarkCourse3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelMarksheet.add(jLabelmarkCourse3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 270, 40, 20));
 
-        marksInput4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(marksInput4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 310, 20, 20));
+        jLabelmarkCourse4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelMarksheet.add(jLabelmarkCourse4, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 310, 40, 20));
 
-        marksInput5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        marksInput5.setForeground(new java.awt.Color(255, 255, 255));
-        marksInput5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(marksInput5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 30, 30));
+        jLabelmarkPercentage.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        jLabelmarkPercentage.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelmarkPercentage.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelMarksheet.add(jLabelmarkPercentage, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 50, 30));
 
         passMarksSub5.setText("40");
         passMarksSub5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(passMarksSub5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 350, 20, 20));
+        jPanelMarksheet.add(passMarksSub5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 350, 20, 20));
 
         passMarksSub4.setText("40");
         passMarksSub4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(passMarksSub4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 310, 20, 20));
+        jPanelMarksheet.add(passMarksSub4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 310, 20, 20));
 
         passMarksSub3.setText("40");
         passMarksSub3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(passMarksSub3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 270, 20, 20));
+        jPanelMarksheet.add(passMarksSub3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 270, 20, 20));
 
         passMarksSub2.setText("40");
         passMarksSub2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(passMarksSub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 230, 20, 20));
+        jPanelMarksheet.add(passMarksSub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 230, 20, 20));
 
         passMarksSub1.setText("40");
         passMarksSub1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(passMarksSub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, 20, 20));
+        jPanelMarksheet.add(passMarksSub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, 20, 20));
 
         fullMarksSub5.setText("100");
         fullMarksSub5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(fullMarksSub5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, 30, 20));
+        jPanelMarksheet.add(fullMarksSub5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, 30, 20));
 
         fullMarksSub4.setText("100");
         fullMarksSub4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(fullMarksSub4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 30, 20));
+        jPanelMarksheet.add(fullMarksSub4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 30, 20));
 
         fullMarksSub1.setText("100");
         fullMarksSub1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(fullMarksSub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 30, 20));
+        jPanelMarksheet.add(fullMarksSub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 30, 20));
 
         fullMarksSub2.setText("100");
         fullMarksSub2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(fullMarksSub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 230, 30, 20));
+        jPanelMarksheet.add(fullMarksSub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 230, 30, 20));
 
         fullMarksSub3.setText("100");
         fullMarksSub3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(fullMarksSub3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 30, 20));
+        jPanelMarksheet.add(fullMarksSub3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 30, 20));
 
         sub5_Input.setText("Subject 5");
         sub5_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(sub5_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 90, 20));
+        jPanelMarksheet.add(sub5_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 90, 20));
 
         sub1_Input.setText("Subject 1");
         sub1_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(sub1_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 90, 20));
+        jPanelMarksheet.add(sub1_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 90, 20));
 
         sub2_Input.setText("Subject 2");
         sub2_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(sub2_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 90, 20));
+        jPanelMarksheet.add(sub2_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 90, 20));
 
         sub3_Input.setText("Subject 3");
         sub3_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(sub3_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 90, 20));
+        jPanelMarksheet.add(sub3_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 90, 20));
 
         subject5_Input.setText("Subject 4");
         subject5_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(subject5_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 90, 20));
+        jPanelMarksheet.add(subject5_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 90, 20));
 
-        percentageObtainedInput.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(percentageObtainedInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 350, 20, 20));
+        jLabelmarkCourse5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelMarksheet.add(jLabelmarkCourse5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 350, 40, 20));
 
         totalPercentageInput.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
         totalPercentageInput.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel8.add(totalPercentageInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 110, 30));
+        jPanelMarksheet.add(totalPercentageInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 110, 30));
 
         jLabel23.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Total Percentage: ");
-        jPanel8.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 540, 110, 30));
+        jPanelMarksheet.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 540, 110, 30));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Obtained Marks");
-        jPanel8.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 140, 110, 20));
+        jPanelMarksheet.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 140, 110, 20));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Pass Marks");
-        jPanel8.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 140, 60, 20));
+        jPanelMarksheet.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 140, 60, 20));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Full Marks");
-        jPanel8.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, 60, 20));
+        jPanelMarksheet.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, 60, 20));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Subject");
-        jPanel8.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 136, 50, 30));
-        jPanel8.add(remarksInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 350, 150));
+        jPanelMarksheet.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 136, 50, 30));
+        jPanelMarksheet.add(remarksInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 350, 150));
 
         studentInfo_Title.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
         studentInfo_Title.setForeground(new java.awt.Color(255, 255, 255));
         studentInfo_Title.setText("Remarks");
-        jPanel8.add(studentInfo_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
+        jPanelMarksheet.add(studentInfo_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
 
         studentInfo_Title1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
         studentInfo_Title1.setForeground(new java.awt.Color(255, 255, 255));
         studentInfo_Title1.setText("Student Information");
-        jPanel8.add(studentInfo_Title1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+        jPanelMarksheet.add(studentInfo_Title1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
-        sIDInput.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        sIDInput.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel8.add(sIDInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 40, 20));
+        jLabelmarkStdID.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabelmarkStdID.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelMarksheet.add(jLabelmarkStdID, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 40, 20));
 
-        sNameInput.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        sNameInput.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel8.add(sNameInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 170, 20));
+        jLabelmarkStdName.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabelmarkStdName.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelMarksheet.add(jLabelmarkStdName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 170, 20));
 
-        rankInput1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        rankInput1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel8.add(rankInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 40, 20));
+        jLabelmarkRank.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabelmarkRank.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelMarksheet.add(jLabelmarkRank, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 40, 20));
 
         rank.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         rank.setForeground(new java.awt.Color(255, 255, 255));
         rank.setText("Rank: ");
-        jPanel8.add(rank, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
+        jPanelMarksheet.add(rank, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
 
         sid.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         sid.setForeground(new java.awt.Color(255, 255, 255));
         sid.setText("Student Name: ");
-        jPanel8.add(sid, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+        jPanelMarksheet.add(sid, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
 
         sname.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         sname.setForeground(new java.awt.Color(255, 255, 255));
         sname.setText("Student ID: ");
-        jPanel8.add(sname, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
+        jPanelMarksheet.add(sname, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/softwarica_logo.png"))); // NOI18N
-        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 430, 100));
+        jPanelMarksheet.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 430, 100));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/MarksheetPrintPage.png"))); // NOI18N
-        jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 600));
+        jLabelMarksheet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/MarksheetPrintPage.png"))); // NOI18N
+        jLabelMarksheet.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelMarksheet.add(jLabelMarksheet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 600));
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/MarksheetPrintPage.png"))); // NOI18N
         jLabel24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel8.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 600));
+        jPanelMarksheet.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 600));
 
-        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 990, 600));
+        jPanel7.add(jPanelMarksheet, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 990, 600));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -1093,22 +1090,22 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabel14.setText("Enter Student ID to search result");
         jPanel7.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(37, 184, 246));
-        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Search Result");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(37, 184, 246), new java.awt.Color(37, 184, 246), null, null));
-        jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 100, 40));
+        jButtonmarkSearch.setBackground(new java.awt.Color(37, 184, 246));
+        jButtonmarkSearch.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        jButtonmarkSearch.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonmarkSearch.setText("Search Result");
+        jButtonmarkSearch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(37, 184, 246), new java.awt.Color(37, 184, 246), null, null));
+        jPanel7.add(jButtonmarkSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 100, 40));
 
-        jButton2.setBackground(new java.awt.Color(73, 166, 105));
-        jButton2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Generate Marksheet");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(112, 200, 142), new java.awt.Color(112, 200, 142), null, null));
-        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 160, 40));
+        jButtonmarkPrint.setBackground(new java.awt.Color(73, 166, 105));
+        jButtonmarkPrint.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jButtonmarkPrint.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonmarkPrint.setText("Generate Marksheet");
+        jButtonmarkPrint.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(112, 200, 142), new java.awt.Color(112, 200, 142), null, null));
+        jPanel7.add(jButtonmarkPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 160, 40));
 
-        jTextField2.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel7.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 370, 30));
+        jTextFieldmarkStdID.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel7.add(jTextFieldmarkStdID, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 370, 30));
 
         background_Box.setBackground(new java.awt.Color(77, 119, 155));
         background_Box.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
@@ -1270,8 +1267,6 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JLabel fullMarksSub3;
     private javax.swing.JLabel fullMarksSub4;
     private javax.swing.JLabel fullMarksSub5;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     public javax.swing.JButton jButtonAdd;
     public javax.swing.JButton jButtonClear;
     public javax.swing.JButton jButtonDelete;
@@ -1281,11 +1276,12 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JButton jButtonSearch;
     public javax.swing.JButton jButtonSearch2;
     public javax.swing.JButton jButtonUpdate;
+    public javax.swing.JButton jButtonmarkPrint;
+    public javax.swing.JButton jButtonmarkSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -1307,6 +1303,16 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     public javax.swing.JLabel jLabelFName;
     public javax.swing.JLabel jLabelLName;
+    public javax.swing.JLabel jLabelMarksheet;
+    public javax.swing.JLabel jLabelmarkCourse1;
+    public javax.swing.JLabel jLabelmarkCourse2;
+    public javax.swing.JLabel jLabelmarkCourse3;
+    public javax.swing.JLabel jLabelmarkCourse4;
+    public javax.swing.JLabel jLabelmarkCourse5;
+    public javax.swing.JLabel jLabelmarkPercentage;
+    public javax.swing.JLabel jLabelmarkRank;
+    public javax.swing.JLabel jLabelmarkStdID;
+    public javax.swing.JLabel jLabelmarkStdName;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1314,7 +1320,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
+    public javax.swing.JPanel jPanelMarksheet;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -1322,7 +1328,6 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JTable jTable;
     public javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     public javax.swing.JTextField jTextFieldCourse1;
     public javax.swing.JTextField jTextFieldCourse2;
     public javax.swing.JTextField jTextFieldCourse3;
@@ -1330,6 +1335,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JTextField jTextFieldCourse5;
     public javax.swing.JTextField jTextFieldSearch2;
     public javax.swing.JTextField jTextFieldStudentID;
+    public javax.swing.JTextField jTextFieldmarkStdID;
     private javax.swing.JLabel label_subject1;
     private javax.swing.JLabel label_subject2;
     private javax.swing.JLabel label_subject3;
@@ -1338,11 +1344,6 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JLabel lastName;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel mainPanel1;
-    private javax.swing.JLabel marksInput1;
-    private javax.swing.JLabel marksInput2;
-    private javax.swing.JLabel marksInput3;
-    private javax.swing.JLabel marksInput4;
-    private javax.swing.JLabel marksInput5;
     private javax.swing.JLabel marksheetTitle;
     private javax.swing.JPanel panel_studentForm;
     private javax.swing.JPanel panel_studentForm1;
@@ -1351,13 +1352,8 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JLabel passMarksSub3;
     private javax.swing.JLabel passMarksSub4;
     private javax.swing.JLabel passMarksSub5;
-    private javax.swing.JLabel percentageObtainedInput;
-    private javax.swing.JLabel percentageSymbol;
     private javax.swing.JLabel rank;
-    private javax.swing.JLabel rankInput1;
     private javax.swing.JLabel remarksInput;
-    private javax.swing.JLabel sIDInput;
-    private javax.swing.JLabel sNameInput;
     private javax.swing.JLabel sid;
     private javax.swing.JLabel sname;
     private javax.swing.JLabel studentInfo_Title;
