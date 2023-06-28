@@ -116,7 +116,47 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jButtonPrint = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
+        percentageSymbol = new javax.swing.JLabel();
+        marksheetTitle = new javax.swing.JLabel();
+        marksInput1 = new javax.swing.JLabel();
+        marksInput2 = new javax.swing.JLabel();
+        marksInput3 = new javax.swing.JLabel();
+        marksInput4 = new javax.swing.JLabel();
+        marksInput5 = new javax.swing.JLabel();
+        passMarksSub5 = new javax.swing.JLabel();
+        passMarksSub4 = new javax.swing.JLabel();
+        passMarksSub3 = new javax.swing.JLabel();
+        passMarksSub2 = new javax.swing.JLabel();
+        passMarksSub1 = new javax.swing.JLabel();
+        fullMarksSub5 = new javax.swing.JLabel();
+        fullMarksSub4 = new javax.swing.JLabel();
+        fullMarksSub1 = new javax.swing.JLabel();
+        fullMarksSub2 = new javax.swing.JLabel();
+        fullMarksSub3 = new javax.swing.JLabel();
+        sub5_Input = new javax.swing.JLabel();
+        sub1_Input = new javax.swing.JLabel();
+        sub2_Input = new javax.swing.JLabel();
+        sub3_Input = new javax.swing.JLabel();
+        subject5_Input = new javax.swing.JLabel();
+        percentageObtainedInput = new javax.swing.JLabel();
+        totalPercentageInput = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        remarksInput = new javax.swing.JLabel();
+        studentInfo_Title = new javax.swing.JLabel();
+        studentInfo_Title1 = new javax.swing.JLabel();
+        sIDInput = new javax.swing.JLabel();
+        sNameInput = new javax.swing.JLabel();
+        rankInput1 = new javax.swing.JLabel();
+        rank = new javax.swing.JLabel();
+        sid = new javax.swing.JLabel();
+        sname = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -872,8 +912,174 @@ public class StudentDataEntry extends javax.swing.JFrame {
 
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        percentageSymbol.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        percentageSymbol.setForeground(new java.awt.Color(255, 255, 255));
+        percentageSymbol.setText("%");
+        percentageSymbol.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(percentageSymbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 540, 30, 30));
+
+        marksheetTitle.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
+        marksheetTitle.setForeground(new java.awt.Color(46, 85, 148));
+        marksheetTitle.setText("Marksheet");
+        jPanel8.add(marksheetTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 220, 30));
+
+        marksInput1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(marksInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 190, 20, 20));
+
+        marksInput2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(marksInput2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 230, 20, 20));
+
+        marksInput3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(marksInput3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 270, 20, 20));
+
+        marksInput4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(marksInput4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 310, 20, 20));
+
+        marksInput5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        marksInput5.setForeground(new java.awt.Color(255, 255, 255));
+        marksInput5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(marksInput5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 30, 30));
+
+        passMarksSub5.setText("40");
+        passMarksSub5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(passMarksSub5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 350, 20, 20));
+
+        passMarksSub4.setText("40");
+        passMarksSub4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(passMarksSub4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 310, 20, 20));
+
+        passMarksSub3.setText("40");
+        passMarksSub3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(passMarksSub3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 270, 20, 20));
+
+        passMarksSub2.setText("40");
+        passMarksSub2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(passMarksSub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 230, 20, 20));
+
+        passMarksSub1.setText("40");
+        passMarksSub1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(passMarksSub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, 20, 20));
+
+        fullMarksSub5.setText("100");
+        fullMarksSub5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(fullMarksSub5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, 30, 20));
+
+        fullMarksSub4.setText("100");
+        fullMarksSub4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(fullMarksSub4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 30, 20));
+
+        fullMarksSub1.setText("100");
+        fullMarksSub1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(fullMarksSub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 30, 20));
+
+        fullMarksSub2.setText("100");
+        fullMarksSub2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(fullMarksSub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 230, 30, 20));
+
+        fullMarksSub3.setText("100");
+        fullMarksSub3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(fullMarksSub3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 30, 20));
+
+        sub5_Input.setText("Subject 5");
+        sub5_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(sub5_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 90, 20));
+
+        sub1_Input.setText("Subject 1");
+        sub1_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(sub1_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 90, 20));
+
+        sub2_Input.setText("Subject 2");
+        sub2_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(sub2_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 90, 20));
+
+        sub3_Input.setText("Subject 3");
+        sub3_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(sub3_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 90, 20));
+
+        subject5_Input.setText("Subject 4");
+        subject5_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(subject5_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 90, 20));
+
+        percentageObtainedInput.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(percentageObtainedInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 350, 20, 20));
+
+        totalPercentageInput.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        totalPercentageInput.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel8.add(totalPercentageInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 110, 30));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("Total Percentage: ");
+        jPanel8.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 540, 110, 30));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Obtained Marks");
+        jPanel8.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 140, 110, 20));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Pass Marks");
+        jPanel8.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 140, 60, 20));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Full Marks");
+        jPanel8.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, 60, 20));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Subject");
+        jPanel8.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 136, 50, 30));
+        jPanel8.add(remarksInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 350, 150));
+
+        studentInfo_Title.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        studentInfo_Title.setForeground(new java.awt.Color(255, 255, 255));
+        studentInfo_Title.setText("Remarks");
+        jPanel8.add(studentInfo_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
+
+        studentInfo_Title1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        studentInfo_Title1.setForeground(new java.awt.Color(255, 255, 255));
+        studentInfo_Title1.setText("Student Information");
+        jPanel8.add(studentInfo_Title1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+
+        sIDInput.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        sIDInput.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel8.add(sIDInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 40, 20));
+
+        sNameInput.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        sNameInput.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel8.add(sNameInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 170, 20));
+
+        rankInput1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        rankInput1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel8.add(rankInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 40, 20));
+
+        rank.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        rank.setForeground(new java.awt.Color(255, 255, 255));
+        rank.setText("Rank: ");
+        jPanel8.add(rank, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
+
+        sid.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        sid.setForeground(new java.awt.Color(255, 255, 255));
+        sid.setText("Student Name: ");
+        jPanel8.add(sid, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+
+        sname.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        sname.setForeground(new java.awt.Color(255, 255, 255));
+        sname.setText("Student ID: ");
+        jPanel8.add(sname, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/softwarica_logo.png"))); // NOI18N
+        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 430, 100));
+
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/MarksheetPrintPage.png"))); // NOI18N
+        jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 600));
+
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/MarksheetPrintPage.png"))); // NOI18N
+        jLabel24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel8.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 600));
 
         jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 990, 600));
 
@@ -1059,6 +1265,11 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JButton btnSearch;
     public javax.swing.JButton btnUpdate;
     private javax.swing.JLabel firstName;
+    private javax.swing.JLabel fullMarksSub1;
+    private javax.swing.JLabel fullMarksSub2;
+    private javax.swing.JLabel fullMarksSub3;
+    private javax.swing.JLabel fullMarksSub4;
+    private javax.swing.JLabel fullMarksSub5;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     public javax.swing.JButton jButtonAdd;
@@ -1078,8 +1289,15 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1120,8 +1338,36 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JLabel lastName;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel mainPanel1;
+    private javax.swing.JLabel marksInput1;
+    private javax.swing.JLabel marksInput2;
+    private javax.swing.JLabel marksInput3;
+    private javax.swing.JLabel marksInput4;
+    private javax.swing.JLabel marksInput5;
+    private javax.swing.JLabel marksheetTitle;
     private javax.swing.JPanel panel_studentForm;
     private javax.swing.JPanel panel_studentForm1;
+    private javax.swing.JLabel passMarksSub1;
+    private javax.swing.JLabel passMarksSub2;
+    private javax.swing.JLabel passMarksSub3;
+    private javax.swing.JLabel passMarksSub4;
+    private javax.swing.JLabel passMarksSub5;
+    private javax.swing.JLabel percentageObtainedInput;
+    private javax.swing.JLabel percentageSymbol;
+    private javax.swing.JLabel rank;
+    private javax.swing.JLabel rankInput1;
+    private javax.swing.JLabel remarksInput;
+    private javax.swing.JLabel sIDInput;
+    private javax.swing.JLabel sNameInput;
+    private javax.swing.JLabel sid;
+    private javax.swing.JLabel sname;
+    private javax.swing.JLabel studentInfo_Title;
+    private javax.swing.JLabel studentInfo_Title1;
+    private javax.swing.JLabel sub1_Input;
+    private javax.swing.JLabel sub2_Input;
+    private javax.swing.JLabel sub3_Input;
+    private javax.swing.JLabel sub5_Input;
+    private javax.swing.JLabel subject5_Input;
+    private javax.swing.JLabel totalPercentageInput;
     public javax.swing.JTextField txtAddress;
     public javax.swing.JTextField txtAge;
     public javax.swing.JTextField txtEmail;
