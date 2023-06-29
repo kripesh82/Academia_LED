@@ -9,7 +9,7 @@ package model;
  * @author User
  */
 public class RegistrationModel {
-        String fname,lname,username,staffid,password,conpassword
+    String fname,lname,username,staffid,password,conpassword
     ;
 
     public String getFname() {
@@ -59,14 +59,7 @@ public class RegistrationModel {
     public void setConpassword(String conpassword) {
         this.conpassword = conpassword;
     }
-    public RegistrationModel(String fname, String lname, String username, String staffid, String password, String conpassword) {
-        this.fname = fname;
-        this.lname = lname;
-        this.username = username;
-        this.staffid = staffid;
-        this.password = password;
-        this.conpassword = conpassword;
-}
 
-    
+
+
 }

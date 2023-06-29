@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+import DAO.RegistrationDAO;
 import model.*;
 import controller.*;
 import java.awt.event.ActionListener;
@@ -19,7 +20,7 @@ import java.awt.event.ActionListener;
  * @author neera
  */
 public class RegisterPage extends javax.swing.JFrame {
-    RegistrationModel model;
+    private RegistrationController controller;
 
     //RegisterModel model;
     /**
@@ -27,6 +28,12 @@ public class RegisterPage extends javax.swing.JFrame {
      */
     public RegisterPage() {
         initComponents();
+                RegistrationModel model = new RegistrationModel();
+        RegistrationDAO dao = new RegistrationDAO();
+        
+        controller = new RegistrationController(model, dao, this);
+        
+        controller.start();
         
     }
     
@@ -36,12 +43,7 @@ public class RegisterPage extends javax.swing.JFrame {
 //    
 //    }
     
-public RegistrationModel getUser()
-{
-   // model=new RegisterModel(txtusername.getText(),txtpassword.getText());
-    model=new RegistrationModel(txtFirstName.getText(),txtLastName.getText(),txtUsername.getText(),txtStaffId.getText(),txtPassword.getText(),txtConfirmPassword.getText());
-    return model;
-}
+
     
     public void setMessage(String msg){
         JOptionPane.showMessageDialog(this,msg);
@@ -209,18 +211,11 @@ public RegistrationModel getUser()
     }//GEN-LAST:event_txtConfirmPasswordActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-       RegistrationController r=new RegistrationController(this);
-                                                  
-
-    
-                                       
+                               
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
-        Login lo = new Login();
-        lo.setVisible(true);
-        this.dispose();  
+
         
     }//GEN-LAST:event_btnLoginActionPerformed
 
@@ -229,20 +224,9 @@ public RegistrationModel getUser()
     }//GEN-LAST:event_txtUsernameActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
-        // TODO add your handling code here:
-            txtFirstName.setText("");
-            txtLastName.setText("");
-            txtUsername.setText("");
-            txtStaffId.setText("");
-            txtPassword.setText("");
-            txtConfirmPassword.setText("");
+
     }//GEN-LAST:event_resetButtonActionPerformed
 
-    
-public void addLoginListner(ActionListener log)
-{
-    btnRegister.addActionListener(log);
-}
     /**
      * @param args the command line arguments
      */
@@ -329,8 +313,8 @@ public void addLoginListner(ActionListener log)
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnRegister;
+    public javax.swing.JButton btnLogin;
+    public javax.swing.JButton btnRegister;
     private javax.swing.JLabel create_password;
     private javax.swing.JLabel existingUSer;
     private javax.swing.JLabel firstname;
@@ -340,14 +324,14 @@ public void addLoginListner(ActionListener log)
     private javax.swing.JLabel reenter_password;
     private javax.swing.JLabel regiser_form_enclosure;
     private javax.swing.JLabel register;
-    private javax.swing.JButton resetButton;
+    public javax.swing.JButton resetButton;
     private javax.swing.JLabel staffID;
-    private javax.swing.JPasswordField txtConfirmPassword;
-    private javax.swing.JTextField txtFirstName;
-    private javax.swing.JTextField txtLastName;
-    private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JTextField txtStaffId;
-    private javax.swing.JTextField txtUsername;
+    public javax.swing.JPasswordField txtConfirmPassword;
+    public javax.swing.JTextField txtFirstName;
+    public javax.swing.JTextField txtLastName;
+    public javax.swing.JPasswordField txtPassword;
+    public javax.swing.JTextField txtStaffId;
+    public javax.swing.JTextField txtUsername;
     private javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
 }

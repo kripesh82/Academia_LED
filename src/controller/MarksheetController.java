@@ -55,7 +55,7 @@ public class MarksheetController implements ActionListener{
     }
     public void start1()
     {
-        markpage.setTitle("Marksheet Page");
+        markpage.setTitle("Student Registration Page");
         markpage.setLocationRelativeTo(null);
         markpage.jTextFieldStudentID.setVisible(true);
         clear();

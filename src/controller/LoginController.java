@@ -1,80 +1,62 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
-import java.sql.Connection;
-import model.*;
-import view.*;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import javax.swing.JOptionPane;
+import model.LoginModel;
+import DAO.LoginDAO;
+import view.Login;
+import view.RegisterPage;
+import view.StudentDataEntry;
 
-/**
- *
- * @author User
- */
-public class LoginController {
-    Login logview;
-    LoginModel logmod;
-    ResultSet rs;
-    Statement stmt;
+public class LoginController implements ActionListener {
+    private LoginModel mod;
+    private LoginDAO modDAO;
+    private RegisterPage regpage;
+    private Login loginpage;
 
-    
-    public LoginController(Login logview){
-        this.logview=logview;
-        logview.addLoginListener(new LoginListener());
+    public LoginController(LoginModel mod, LoginDAO modDAO, Login loginpage) {
+        this.mod = mod;
+        this.modDAO = modDAO;
+        this.loginpage = loginpage;
+
+        this.loginpage.btnRegister.addActionListener(this);
+        this.loginpage.btnLogin.addActionListener(this);
+        this.loginpage.btnClear.addActionListener(this);
     }
-    class LoginListener implements ActionListener{
-        
-       
-        @Override
-        public void actionPerformed(ActionEvent e){
-            
-            try{
-                logmod=logview.getUser();   
-                if(checkUser(logmod)){       
-                    logview.setMessage("login successfully");
-                    Dashboard db = new Dashboard();
-                    db.setVisible(true);
-                    logview.dispose();
-                    
-                }
-                else{
-                    logview.setMessage("invalid credentials");
-                    
-                }
-                           
-        
+        public void start() {
+        loginpage.setTitle("Login Page");
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == loginpage.btnRegister) {
+            RegisterPage registrationPage = new RegisterPage();
+            registrationPage.setVisible(true);
+            loginpage.dispose();
+        } else if (e.getSource() == loginpage.btnLogin) {
+            String username = loginpage.txtUsername.getText();
+            String password = loginpage.txtPassword.getText();
+
+            if (username.isEmpty() || password.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter both username and password");
+                return;
             }
-            catch(Exception e1){
-                System.out.println(e1.getMessage());
+
+            if (modDAO.login(username, password)) {
+                JOptionPane.showMessageDialog(null, "Login Successful");
+                loginpage.dispose();
+                StudentDataEntry studentPage = new StudentDataEntry();
+                studentPage.setVisible(true);
                 
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid username or password");
+                loginpage.txtUsername.setText(null);
+                loginpage.txtPassword.setText(null);
             }
+        } else if (e.getSource() == loginpage.btnClear) {
+            loginpage.txtUsername.setText(null);
+            loginpage.txtPassword.setText(null);
         }
-         public boolean checkUser(LoginModel user) throws Exception{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mvcprac","root","nirkr~");
-            String query="select * from users where username='"+user.getUsername()+"' AND password='"+user.getPassword()+"'";
-            try{
-                stmt=conn.createStatement();
-                rs=stmt.executeQuery(query);
-                if (rs.next()){
-                    return true;
-                }
-                conn.close();
-                
-            }
-            catch(Exception e2){
-                System.out.println(e2.getMessage());
-                
-            }
-           return false;
-         }
-
-
     }
-    
 }

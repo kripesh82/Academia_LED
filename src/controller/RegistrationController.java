@@ -1,124 +1,89 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
 
-/**
- *
- * @author User
- */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.*;
 import javax.swing.JOptionPane;
-import model.*;
-import view.*; 
+import model.RegistrationModel;
+import DAO.RegistrationDAO;
+import view.RegisterPage;
+import view.Login;
 
-public class RegistrationController {
-    RegistrationModel model;
-    RegisterPage view;
-    ResultSet rs;
-    PreparedStatement pst=null;
-        public RegistrationController(RegisterPage view)
-        {
-            this.view=view;
-            
-             view.addLoginListner(new RegisetrListener());
-        }
-        
-        class RegisetrListener implements ActionListener
-    {
+public class RegistrationController implements ActionListener {
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            try
-            {
-                model=view.getUser();
-                if(checkUser(model))
-                {
-                    view.setMessage("Registered Successfully" );
+    private RegistrationModel mod;
+    private RegistrationDAO modDAO;
+    private RegisterPage regpage;
+    private Login loginpage;
+
+    public RegistrationController(RegistrationModel mod, RegistrationDAO modDAO, RegisterPage regpage) {
+        this.mod = mod;
+        this.modDAO = modDAO;
+        this.regpage = regpage;
+
+        this.regpage.btnRegister.addActionListener(this);
+        this.regpage.btnLogin.addActionListener(this);
+        this.regpage.resetButton.addActionListener(this);
+    }
+
+    public void start() {
+        regpage.setTitle("Registration Page");
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == regpage.btnRegister) {
+            if (validateFields()) {
+                mod.setFname(regpage.txtFirstName.getText());
+                mod.setLname(regpage.txtLastName.getText());
+                mod.setUsername((regpage.txtUsername.getText()));
+                mod.setStaffid((regpage.txtStaffId.getText()));
+                mod.setPassword(regpage.txtPassword.getText());
+                mod.setConpassword(regpage.txtConfirmPassword.getText());
+
+                if (!mod.getPassword().equals(mod.getConpassword())) {
+                    JOptionPane.showMessageDialog(null, "Password and Confirm Password do not match");
+                    return;
                 }
-                else
-                {
-                    view.setMessage("Invalid registration");
-                    
+
+                try {
+                    int staffId = Integer.parseInt(mod.getStaffid());
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Staff ID must be an integer");
+                    return;
+                }
+
+                if (modDAO.register(mod)) {
+                    JOptionPane.showMessageDialog(null, "Registered Successfully");
+                    clear();
+                } else {
+//                    JOptionPane.showMessageDialog(null, "Cannot be Registered");
+                    clear();
                 }
             }
-            catch(Exception e1)
-            {
-                
-            }
-
-        }
-       
-        public boolean checkUser(RegistrationModel user) throws Exception {
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mvcprac", "root", "nirkr~");
-
-        
-        String checkUsernameQuery = "SELECT * FROM users WHERE username = ?";
-        pst = conn.prepareStatement(checkUsernameQuery);
-        pst.setString(1, user.getUsername());
-        ResultSet rs = pst.executeQuery();
-        if (rs.next()) {
-            
-            JOptionPane.showMessageDialog(null, "Username is already taken");
-            return false;
-        }
-        
-            if (user.getFname().isEmpty() || user.getLname().isEmpty() ||
-            user.getUsername().isEmpty() || user.getStaffid().isEmpty() ||
-            user.getPassword().isEmpty() || user.getConpassword().isEmpty() ||
-            user.getFname().equals("Enter First Name") ||
-            user.getLname().equals("Enter Last Name")  ||
-            user.getUsername().equals("Enter Username") ||
-            user.getStaffid().equals("Enter StaffId") ||        
-            user.getPassword().equals("Enter Password") ||
-            user.getConpassword().equals("Confirm PAssword")) {
-            JOptionPane.showMessageDialog(null, "Please fill in all fields");
-            return false;
-        }
-        try {
-            int staffId = Integer.parseInt(user.getStaffid());
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Staff ID must be an integer");
-            return false;
-        }
-
-        
-        if (!user.getPassword().equals(user.getConpassword())) {
-            JOptionPane.showMessageDialog(null, "Password and Confirm password must match");
-            return false;
-        }
-
-        
-        String insertQuery = "INSERT INTO users(first_name, last_name, username, staff_id, password) VALUES (?, ?, ?, ?, ?)";
-        pst = conn.prepareStatement(insertQuery);
-        pst.setString(1, user.getFname());
-        pst.setString(2, user.getLname());
-        pst.setString(3, user.getUsername());
-        pst.setString(4, user.getStaffid());
-        pst.setString(5, user.getPassword());
-
-        pst.executeUpdate();
-        System.out.println("Data inserted");
-        JOptionPane.showMessageDialog(null, "Data Registered Successfully");
-        return true;
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        throw e; // Rethrow the exception to be caught by the calling code
-    } finally {
-        if (pst != null) {
-            pst.close();
+        } else if (e.getSource() == regpage.resetButton) {
+            clear();
+        } else if (e.getSource() == regpage.btnLogin) {
+            Login loginPage = new Login();
+            loginPage.setVisible(true);
+            regpage.dispose();
         }
     }
-}
 
-    
+    public void clear() {
+        regpage.txtFirstName.setText(null);
+        regpage.txtLastName.setText(null);
+        regpage.txtUsername.setText(null);
+        regpage.txtStaffId.setText(null);
+        regpage.txtPassword.setText(null);
+        regpage.txtConfirmPassword.setText(null);
+    }
 
-        
-}
-    
+    public boolean validateFields() {
+        if (regpage.txtFirstName.getText().isEmpty() || regpage.txtLastName.getText().isEmpty()
+                || regpage.txtUsername.getText().isEmpty() || regpage.txtStaffId.getText().isEmpty()
+                || regpage.txtPassword.getText().isEmpty() || regpage.txtConfirmPassword.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill in all the fields");
+            return false;
+        }
+        return true;
+    }
 }

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+import DAO.LoginDAO;
 import javax.swing.JOptionPane;
 import model.*;
 import controller.*;
@@ -14,13 +15,20 @@ import view.RegisterPage;
  * @author neera
  */
 public class Login extends javax.swing.JFrame {
-    LoginModel logMod;
+    private LoginController controller;
+
 
     /**
      * Creates new form RegistrationPage
      */
     public Login() {
         initComponents();
+        LoginModel model = new LoginModel();
+        LoginDAO dao = new LoginDAO();
+        
+        controller = new LoginController(model, dao, this);
+        
+        controller.start();
         
     }
 
@@ -134,35 +142,21 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        // TODO add your handling code here:
-        RegisterPage rv = new RegisterPage();
-        rv.setVisible(true);
-        this.dispose();   
+
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
-         LoginController l = new LoginController(this);
+
 
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        // TODO add your handling code here:\
-        txtUsername.setText("");
-        txtPassword.setText("");
-    }//GEN-LAST:event_btnClearActionPerformed
-    public LoginModel getUser(){
-    logMod=new LoginModel(txtUsername.getText(),txtPassword.getText());  
-    return logMod;
-}
 
-public void setMessage(String msg){       
-    JOptionPane.showMessageDialog(this, msg);
-}
+    }//GEN-LAST:event_btnClearActionPerformed
+
+
+
     
-public void addLoginListener(ActionListener log){
-    btnLogin.addActionListener(log);
-}
     /**
      * @param args the command line arguments
      */
@@ -201,17 +195,17 @@ public void addLoginListener(ActionListener log){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Login_title;
-    private javax.swing.JButton btnClear;
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnRegister;
+    public javax.swing.JButton btnClear;
+    public javax.swing.JButton btnLogin;
+    public javax.swing.JButton btnRegister;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel line;
     private javax.swing.JLabel login_form_enclosure;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel new_user;
     private javax.swing.JLabel password;
-    private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JTextField txtUsername;
+    public javax.swing.JPasswordField txtPassword;
+    public javax.swing.JTextField txtUsername;
     private javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
 }
