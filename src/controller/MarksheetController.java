@@ -112,7 +112,7 @@ public class MarksheetController implements ActionListener{
             }
         }
 
-        if (e.getSource() == markpage.jButtonClear) {
+        if (e.getSource() == markpage.jButtonmarkClear) {
             clear1();
             studentIdSearched = false;
             markpage.jButtonRemarks.setEnabled(false);
