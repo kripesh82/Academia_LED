@@ -126,7 +126,9 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabelmarkCourse2 = new javax.swing.JLabel();
         jLabelmarkCourse3 = new javax.swing.JLabel();
         jLabelmarkCourse4 = new javax.swing.JLabel();
+        jLabelmarkCourse5 = new javax.swing.JLabel();
         jLabelmarkPercentage = new javax.swing.JLabel();
+        remarksInput = new javax.swing.JLabel();
         passMarksSub5 = new javax.swing.JLabel();
         passMarksSub4 = new javax.swing.JLabel();
         passMarksSub3 = new javax.swing.JLabel();
@@ -142,14 +144,12 @@ public class StudentDataEntry extends javax.swing.JFrame {
         sub2_Input = new javax.swing.JLabel();
         sub3_Input = new javax.swing.JLabel();
         subject5_Input = new javax.swing.JLabel();
-        jLabelmarkCourse5 = new javax.swing.JLabel();
         totalPercentageInput = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        remarksInput = new javax.swing.JLabel();
         studentInfo_Title = new javax.swing.JLabel();
         studentInfo_Title1 = new javax.swing.JLabel();
         jLabelmarkStdID = new javax.swing.JLabel();
@@ -164,8 +164,11 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jButtonmarkSearch = new javax.swing.JButton();
-        jButtonmarkPrint = new javax.swing.JButton();
         jTextFieldmarkStdID = new javax.swing.JTextField();
+        jButtonmarkPrint = new javax.swing.JButton();
+        jTextFieldRemarks = new javax.swing.JTextField();
+        jButtonRemarks = new javax.swing.JButton();
+        jButtonmarkClear = new javax.swing.JButton();
         background_Box = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -932,10 +935,14 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabelmarkCourse4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(jLabelmarkCourse4, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 310, 40, 20));
 
+        jLabelmarkCourse5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelMarksheet.add(jLabelmarkCourse5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 350, 40, 20));
+
         jLabelmarkPercentage.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabelmarkPercentage.setForeground(new java.awt.Color(255, 255, 255));
         jLabelmarkPercentage.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(jLabelmarkPercentage, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 50, 30));
+        jPanelMarksheet.add(remarksInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 350, 150));
 
         passMarksSub5.setText("40");
         passMarksSub5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -997,9 +1004,6 @@ public class StudentDataEntry extends javax.swing.JFrame {
         subject5_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(subject5_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 90, 20));
 
-        jLabelmarkCourse5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanelMarksheet.add(jLabelmarkCourse5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 350, 40, 20));
-
         totalPercentageInput.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
         totalPercentageInput.setForeground(new java.awt.Color(255, 255, 255));
         jPanelMarksheet.add(totalPercentageInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 110, 30));
@@ -1028,7 +1032,6 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Subject");
         jPanelMarksheet.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 136, 50, 30));
-        jPanelMarksheet.add(remarksInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 350, 150));
 
         studentInfo_Title.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
         studentInfo_Title.setForeground(new java.awt.Color(255, 255, 255));
@@ -1095,24 +1098,49 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jButtonmarkSearch.setForeground(new java.awt.Color(255, 255, 255));
         jButtonmarkSearch.setText("Search Result");
         jButtonmarkSearch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(37, 184, 246), new java.awt.Color(37, 184, 246), null, null));
-        jPanel7.add(jButtonmarkSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 100, 40));
+        jPanel7.add(jButtonmarkSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 100, 40));
+
+        jTextFieldmarkStdID.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTextFieldmarkStdID.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jPanel7.add(jTextFieldmarkStdID, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 370, 30));
 
         jButtonmarkPrint.setBackground(new java.awt.Color(73, 166, 105));
         jButtonmarkPrint.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jButtonmarkPrint.setForeground(new java.awt.Color(255, 255, 255));
         jButtonmarkPrint.setText("Generate Marksheet");
         jButtonmarkPrint.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(112, 200, 142), new java.awt.Color(112, 200, 142), null, null));
-        jPanel7.add(jButtonmarkPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 160, 40));
+        jPanel7.add(jButtonmarkPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, 160, 40));
 
-        jTextFieldmarkStdID.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel7.add(jTextFieldmarkStdID, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 370, 30));
+        jTextFieldRemarks.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTextFieldRemarks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldRemarksActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jTextFieldRemarks, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 360, 60));
+
+        jButtonRemarks.setText("Enter Remarks");
+        jButtonRemarks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRemarksActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButtonRemarks, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, -1, -1));
+
+        jButtonmarkClear.setText("Clear");
+        jButtonmarkClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonmarkClearActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButtonmarkClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, -1, -1));
 
         background_Box.setBackground(new java.awt.Color(77, 119, 155));
         background_Box.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         background_Box.setForeground(new java.awt.Color(255, 255, 255));
         background_Box.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         background_Box.setOpaque(true);
-        jPanel7.add(background_Box, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 174, 418, 213));
+        jPanel7.add(background_Box, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 174, 418, 370));
 
         jTabbedPane2.addTab("Marksheet", jPanel7);
 
@@ -1217,6 +1245,18 @@ public class StudentDataEntry extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonPrintActionPerformed
 
+    private void jTextFieldRemarksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRemarksActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldRemarksActionPerformed
+
+    private void jButtonRemarksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemarksActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRemarksActionPerformed
+
+    private void jButtonmarkClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonmarkClearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonmarkClearActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1273,9 +1313,11 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JButton jButtonDelete2;
     public javax.swing.JButton jButtonPrint;
     public javax.swing.JButton jButtonRefresh;
+    public javax.swing.JButton jButtonRemarks;
     public javax.swing.JButton jButtonSearch;
     public javax.swing.JButton jButtonSearch2;
     public javax.swing.JButton jButtonUpdate;
+    public javax.swing.JButton jButtonmarkClear;
     public javax.swing.JButton jButtonmarkPrint;
     public javax.swing.JButton jButtonmarkSearch;
     private javax.swing.JLabel jLabel1;
@@ -1333,6 +1375,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JTextField jTextFieldCourse3;
     public javax.swing.JTextField jTextFieldCourse4;
     public javax.swing.JTextField jTextFieldCourse5;
+    public javax.swing.JTextField jTextFieldRemarks;
     public javax.swing.JTextField jTextFieldSearch2;
     public javax.swing.JTextField jTextFieldStudentID;
     public javax.swing.JTextField jTextFieldmarkStdID;
@@ -1353,7 +1396,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JLabel passMarksSub4;
     private javax.swing.JLabel passMarksSub5;
     private javax.swing.JLabel rank;
-    private javax.swing.JLabel remarksInput;
+    public javax.swing.JLabel remarksInput;
     private javax.swing.JLabel sid;
     private javax.swing.JLabel sname;
     private javax.swing.JLabel studentInfo_Title;

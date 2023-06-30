@@ -8,17 +8,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import DAO.MarksheetDAO;
-import java.sql.*;
-import java.awt.print.PrinterException;
-import java.text.MessageFormat;
-import java.util.List;
 import javax.swing.JButton;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import model.ResultModel;
 import view.StudentDataEntry;
 import javax.swing.JPanel;
-import java.util.Comparator;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.print.PageFormat;
@@ -40,6 +33,7 @@ public class MarksheetController implements ActionListener{
     private JPanel jPanelMarksheet;
     private int marksheetWidth = 990;
     private int marksheetHeight = 600;
+    private boolean studentIdSearched = false;
     
     public MarksheetController(ResultModel markMod, MarksheetDAO markDAO, StudentDataEntry markpage)
     {
@@ -48,85 +42,91 @@ public class MarksheetController implements ActionListener{
         this.markpage = markpage;
         this.jButtonmarkPrint = markpage.jButtonmarkPrint;
         this.jPanelMarksheet = markpage.jPanelMarksheet;
-       
-        this.jButtonmarkPrint.addActionListener(this);
+        this.markpage.jButtonRemarks.addActionListener(this);
+        this.markpage.jButtonmarkPrint.addActionListener(this);
         this.markpage.jButtonmarkSearch.addActionListener(this);
-
+        this.markpage.jButtonmarkClear.addActionListener(this);
     }
     public void start1()
     {
         markpage.setTitle("Marksheet Page");
         markpage.setLocationRelativeTo(null);
         markpage.jTextFieldStudentID.setVisible(true);
-        clear();
+        clear1();
     }
 
     @Override
-    public void actionPerformed(ActionEvent e)
-    {
-            if(e.getSource() == markpage.jButtonmarkSearch)
-            {
-                if (validateIDField()) {
-                    markMod.setStudent_id(Integer.parseInt(markpage.jTextFieldmarkStdID.getText())); 
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == markpage.jButtonmarkSearch) {
+            if (validatestdIDField()) {
+                markMod.setStudent_id(Integer.parseInt(markpage.jTextFieldmarkStdID.getText()));
 
-                    if(markDAO.searchMark(markMod))
-                    {
-                        markpage.jLabelmarkStdID.setText(String.valueOf(markMod.getStudent_id()));
-                        markpage.jLabelmarkStdName.setText(markMod.getFirst_name() +" "+ markMod.getLast_name());
-                        markpage.jLabelmarkRank.setText(String.valueOf(markMod.getRank()));
-                        markpage.jLabelmarkCourse1.setText(String.valueOf(markMod.getCourse1()));
-                        markpage.jLabelmarkCourse2.setText(String.valueOf(markMod.getCourse2()));
-                        markpage.jLabelmarkCourse3.setText(String.valueOf(markMod.getCourse3()));
-                        markpage.jLabelmarkCourse4.setText(String.valueOf(markMod.getCourse4()));
-                        markpage.jLabelmarkCourse5.setText(String.valueOf(markMod.getCourse5()));
-                        markpage.jLabelmarkPercentage.setText(String.valueOf(markMod.getPercent())+ "%");
+                if (markDAO.searchMark(markMod)) {
+                    markpage.jLabelmarkStdID.setText(String.valueOf(markMod.getStudent_id()));
+                    markpage.jLabelmarkStdName.setText(markMod.getFirst_name() + " " + markMod.getLast_name());
+                    markpage.jLabelmarkRank.setText(String.valueOf(markMod.getRank()));
+                    markpage.jLabelmarkCourse1.setText(String.valueOf(markMod.getCourse1()));
+                    markpage.jLabelmarkCourse2.setText(String.valueOf(markMod.getCourse2()));
+                    markpage.jLabelmarkCourse3.setText(String.valueOf(markMod.getCourse3()));
+                    markpage.jLabelmarkCourse4.setText(String.valueOf(markMod.getCourse4()));
+                    markpage.jLabelmarkCourse5.setText(String.valueOf(markMod.getCourse5()));
+                    markpage.jLabelmarkPercentage.setText(String.valueOf(markMod.getPercent()) + "%");
 
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No Record Found");
-                        clear();
-                    }   
+                    // Enable the remarks input and print button
+                    markpage.jButtonRemarks.setEnabled(true);
+                    markpage.jButtonmarkPrint.setEnabled(true);
 
+                    studentIdSearched = true;
+                } else {
+                    JOptionPane.showMessageDialog(null, "No Record Found");
+                    clear1();
+
+                    // Disable the remarks input and print button
+                    markpage.jButtonRemarks.setEnabled(false);
+                    markpage.jButtonmarkPrint.setEnabled(false);
+
+                    studentIdSearched = false;
                 }
-
             }
-            
+        }
+
+        if (e.getSource() == markpage.jButtonRemarks) {
+            if (studentIdSearched) {
+                if (validateRemarksField()) {
+                    markpage.remarksInput.setText(String.valueOf(markpage.jTextFieldRemarks.getText()));
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Please search a student ID first.");
+            }
+        }
+
         if (e.getSource() == markpage.jButtonmarkPrint) {
-//            PrinterJob job = PrinterJob.getPrinterJob();
-//            job.setJobName("Print Data");
-//
-//            job.setPrintable(new Printable() {
-//                @Override
-//                public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
-//                    if (pageIndex > 0) {
-//                        return Printable.NO_SUCH_PAGE;
-//                    }
-//
-//                    Graphics2D g2 = (Graphics2D) graphics;
-//                    g2.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
-//
-//                    double scaleX = pageFormat.getImageableWidth() / jLabelMarksheet.getWidth();
-//                    double scaleY = pageFormat.getImageableHeight() / jLabelMarksheet.getHeight();
-//                    g2.scale(scaleX, scaleY);
-//
-//                    jLabelMarksheet.printAll(g2);
-//
-//                    return Printable.PAGE_EXISTS;
-//                }
-//            });
-//
-//            boolean ok = job.printDialog();
-//            if (ok) {
-//                try {
-//                    job.print();
-//                } catch (PrinterException ex) {
-//                    ex.printStackTrace();
-//                }
-//            }
-                printMarksheet();
+            if (studentIdSearched && validatestdIDField()) {
+                if (!markpage.remarksInput.getText().isEmpty()) {
+                    printMarksheet();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please add remarks before printing.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Please search a student ID first.");
+            }
+        }
+
+        if (e.getSource() == markpage.jButtonClear) {
+            clear1();
+            studentIdSearched = false;
+            markpage.jButtonRemarks.setEnabled(false);
+            markpage.jButtonmarkPrint.setEnabled(false);
         }
     }
-    public void clear()
+
+
+
+
+    public void clear1()
     {
+        markpage.jTextFieldRemarks.setText(null);
+        markpage.remarksInput.setText(null);
         markpage.jLabelmarkStdID.setText(null);
         markpage.jTextFieldmarkStdID.setText(null);
         markpage.jLabelmarkStdName.setText(null);
@@ -138,14 +138,24 @@ public class MarksheetController implements ActionListener{
         markpage.jLabelmarkCourse5.setText(null);
         markpage.jLabelmarkPercentage.setText(null);
     }
-    private boolean validateIDField() {
-        if (markpage.jButtonmarkSearch.getText().isEmpty()) {
+    private boolean validatestdIDField() {
+        if (markpage.jTextFieldmarkStdID.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter a student ID.");
             return false;
         }
         
         return true;
     }
+    
+    private boolean validateRemarksField() {
+        if (markpage.jTextFieldRemarks.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter remarks.");
+            return false;
+        }
+        
+        return true;
+    }
+    
     public void printMarksheet() {
         PrinterJob job = PrinterJob.getPrinterJob();
         job.setJobName("Print Data");
