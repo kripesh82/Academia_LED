@@ -83,6 +83,15 @@ public class RegistrationController implements ActionListener {
                 || regpage.txtPassword.getText().isEmpty() || regpage.txtConfirmPassword.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill in all the fields");
             return false;
+            
+        }if (regpage.txtFirstName.getText().equals("Enter First Name")
+            || regpage.txtLastName.getText().equals("Enter Last Name")
+            || regpage.txtUsername.getText().equals("Enter Username")
+            || regpage.txtStaffId.getText().equals("Enter StaffId")
+            || regpage.txtPassword.getText().equals("Enter Password")
+            || regpage.txtConfirmPassword.getText().equals("Confirm Password")) {
+            JOptionPane.showMessageDialog(null, "Please enter valid information");
+            return false;
         }
         return true;
     }

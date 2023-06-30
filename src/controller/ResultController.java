@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import DAO.ResultDAO;
-import java.sql.*;
 import java.awt.print.PrinterException;
 import java.text.MessageFormat;
 import java.util.List;

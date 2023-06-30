@@ -7,10 +7,7 @@ package DAO;
 import connection.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.*;
 import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.List;
 import model.ResultModel;
 /**
  *

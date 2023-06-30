@@ -6,9 +6,7 @@ package view;
 import DAO.RegistrationDAO;
 import model.*;
 import controller.*;
-import java.awt.event.ActionListener;
 import view.Login;
-import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 //import Controller.*;
