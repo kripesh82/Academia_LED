@@ -16,6 +16,7 @@ public class StudentModel {
     private String address;
     private String email;
     private String phone_number;
+    private String filename;
 
     public int getStudent_id() {
         return student_id;
@@ -73,7 +74,14 @@ public class StudentModel {
         this.phone_number = phone_number;
     }
     
-    
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }     
+        
     
     
     

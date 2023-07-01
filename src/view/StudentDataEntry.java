@@ -10,6 +10,8 @@ import controller.MarksheetController;
 import DAO.StudentDAO;
 import DAO.ResultDAO;
 import DAO.MarksheetDAO;
+import DAO.IDCardDAO;
+import controller.IDCardController;
 import model.StudentModel;
 import model.ResultModel;
 /**
@@ -20,6 +22,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private StudentController controller;
     private ResultController controller2;
     private MarksheetController controller3;
+    private IDCardController controller4;
     
     /**
      * Creates new form Attendance
@@ -31,14 +34,20 @@ public class StudentDataEntry extends javax.swing.JFrame {
         ResultDAO dao2=new ResultDAO();
         StudentDAO dao = new StudentDAO();
         MarksheetDAO markDao= new MarksheetDAO();
+        IDCardDAO idDAO = new IDCardDAO();
+       
         
         controller = new StudentController(model, dao, this);        
         controller.start();
         
         controller2=new ResultController(model2,dao2,this);
         controller2.start2();
+        
         controller3= new MarksheetController(model2,markDao,this);
-        controller3.start1();        
+        controller3.start1();    
+        
+        controller4 = new IDCardController(model, idDAO, this);
+        controller4.startID();
     }
 
     /**
@@ -172,23 +181,23 @@ public class StudentDataEntry extends javax.swing.JFrame {
         background_Box = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
-        entersID = new javax.swing.JTextField();
-        btn_sIDsearch = new javax.swing.JButton();
-        btn_printIDCard = new javax.swing.JButton();
-        btn_addImage = new javax.swing.JButton();
-        btn_clear = new javax.swing.JButton();
+        jTextFieldIDStdSearch = new javax.swing.JTextField();
+        jButtonIDSearch = new javax.swing.JButton();
+        jButtonIDPrint = new javax.swing.JButton();
+        jButtonPicture = new javax.swing.JButton();
+        jButtonIDClear = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        inputPhoto = new javax.swing.JLabel();
+        jPanelIDCard = new javax.swing.JPanel();
+        jLabelPicture = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        studentNameInput = new javax.swing.JLabel();
-        sidInput = new javax.swing.JLabel();
+        jLabelIDStdName = new javax.swing.JLabel();
+        jLabelIDStdID = new javax.swing.JLabel();
         SIDlabel = new javax.swing.JLabel();
         age = new javax.swing.JLabel();
-        ageInput = new javax.swing.JLabel();
-        address = new javax.swing.JLabel();
-        student_email = new javax.swing.JLabel();
+        jLabelIDAge = new javax.swing.JLabel();
+        jLabelIDAddress = new javax.swing.JLabel();
+        jLabelIDEmail = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         Settings = new javax.swing.JComboBox<>();
 
@@ -1188,39 +1197,39 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Enter Student ID: ");
         jPanel8.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, -1));
-        jPanel8.add(entersID, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 140, 30));
+        jPanel8.add(jTextFieldIDStdSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 140, 30));
 
-        btn_sIDsearch.setBackground(new java.awt.Color(60, 131, 196));
-        btn_sIDsearch.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        btn_sIDsearch.setForeground(new java.awt.Color(255, 255, 255));
-        btn_sIDsearch.setText("Search");
-        btn_sIDsearch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btn_sIDsearch.setBorderPainted(false);
-        jPanel8.add(btn_sIDsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 100, 30));
+        jButtonIDSearch.setBackground(new java.awt.Color(60, 131, 196));
+        jButtonIDSearch.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        jButtonIDSearch.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonIDSearch.setText("Search");
+        jButtonIDSearch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonIDSearch.setBorderPainted(false);
+        jPanel8.add(jButtonIDSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 100, 30));
 
-        btn_printIDCard.setBackground(new java.awt.Color(190, 146, 32));
-        btn_printIDCard.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        btn_printIDCard.setForeground(new java.awt.Color(255, 255, 255));
-        btn_printIDCard.setText("Print ID Card");
-        btn_printIDCard.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btn_printIDCard.setBorderPainted(false);
-        jPanel8.add(btn_printIDCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 130, 50));
+        jButtonIDPrint.setBackground(new java.awt.Color(190, 146, 32));
+        jButtonIDPrint.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jButtonIDPrint.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonIDPrint.setText("Print ID Card");
+        jButtonIDPrint.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonIDPrint.setBorderPainted(false);
+        jPanel8.add(jButtonIDPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 130, 50));
 
-        btn_addImage.setBackground(new java.awt.Color(201, 29, 29));
-        btn_addImage.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        btn_addImage.setForeground(new java.awt.Color(255, 255, 255));
-        btn_addImage.setText("Add Image");
-        btn_addImage.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btn_addImage.setBorderPainted(false);
-        jPanel8.add(btn_addImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 130, 50));
+        jButtonPicture.setBackground(new java.awt.Color(201, 29, 29));
+        jButtonPicture.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jButtonPicture.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonPicture.setText("Add Image");
+        jButtonPicture.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonPicture.setBorderPainted(false);
+        jPanel8.add(jButtonPicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 130, 50));
 
-        btn_clear.setBackground(new java.awt.Color(121, 173, 35));
-        btn_clear.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        btn_clear.setForeground(new java.awt.Color(255, 255, 255));
-        btn_clear.setText("Clear");
-        btn_clear.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btn_clear.setBorderPainted(false);
-        jPanel8.add(btn_clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 100, 50));
+        jButtonIDClear.setBackground(new java.awt.Color(121, 173, 35));
+        jButtonIDClear.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jButtonIDClear.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonIDClear.setText("Clear");
+        jButtonIDClear.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonIDClear.setBorderPainted(false);
+        jPanel8.add(jButtonIDClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 100, 50));
 
         jLabel13.setBackground(new java.awt.Color(65, 120, 156));
         jLabel13.setOpaque(true);
@@ -1231,54 +1240,54 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabel28.setText("ID Card Generator");
         jPanel8.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
 
-        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel10.add(inputPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 160, 160));
+        jPanelIDCard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelIDCard.add(jLabelPicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 160, 160));
 
         jLabel26.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(194, 234, 243));
         jLabel26.setText("ID CARD");
-        jPanel10.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, -1));
+        jPanelIDCard.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, -1));
 
-        studentNameInput.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        studentNameInput.setForeground(new java.awt.Color(255, 255, 255));
-        studentNameInput.setText("Samman Baral");
-        jPanel10.add(studentNameInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, -1, -1));
+        jLabelIDStdName.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        jLabelIDStdName.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelIDStdName.setText("Samman Baral");
+        jPanelIDCard.add(jLabelIDStdName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, -1, -1));
 
-        sidInput.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        sidInput.setForeground(new java.awt.Color(255, 255, 255));
-        sidInput.setText("22100");
-        jPanel10.add(sidInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 110, -1));
+        jLabelIDStdID.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabelIDStdID.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelIDStdID.setText("22100");
+        jPanelIDCard.add(jLabelIDStdID, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 110, -1));
 
         SIDlabel.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         SIDlabel.setForeground(new java.awt.Color(255, 255, 255));
         SIDlabel.setText("SID: ");
-        jPanel10.add(SIDlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 40, -1));
+        jPanelIDCard.add(SIDlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 40, -1));
 
         age.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         age.setForeground(new java.awt.Color(255, 255, 255));
         age.setText("Age:");
-        jPanel10.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 40, 30));
+        jPanelIDCard.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 40, 30));
 
-        ageInput.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        ageInput.setForeground(new java.awt.Color(255, 255, 255));
-        ageInput.setText("16");
-        jPanel10.add(ageInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, 110, 30));
+        jLabelIDAge.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabelIDAge.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelIDAge.setText("16");
+        jPanelIDCard.add(jLabelIDAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, 110, 30));
 
-        address.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        address.setForeground(new java.awt.Color(255, 255, 255));
-        address.setText("Jhapa, Kathmandu");
-        jPanel10.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, -1, -1));
+        jLabelIDAddress.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabelIDAddress.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelIDAddress.setText("Jhapa, Kathmandu");
+        jPanelIDCard.add(jLabelIDAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, -1, -1));
 
-        student_email.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        student_email.setForeground(new java.awt.Color(255, 255, 255));
-        student_email.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        student_email.setText("samanBaral@gmail.com");
-        jPanel10.add(student_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, 300, -1));
+        jLabelIDEmail.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabelIDEmail.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelIDEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIDEmail.setText("samanBaral@gmail.com");
+        jPanelIDCard.add(jLabelIDEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, 300, -1));
 
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/ID card frame.png"))); // NOI18N
-        jPanel10.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanelIDCard.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel8.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 80, 480, 640));
+        jPanel8.add(jPanelIDCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 80, 480, 640));
 
         jTabbedPane1.addTab("ID card", jPanel8);
 
@@ -1442,9 +1451,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel SIDlabel;
     private javax.swing.JComboBox<String> Settings;
-    private javax.swing.JLabel address;
     private javax.swing.JLabel age;
-    private javax.swing.JLabel ageInput;
     private javax.swing.JLabel background_Box;
     public javax.swing.JButton btnAdd;
     public javax.swing.JButton btnClear;
@@ -1452,22 +1459,20 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JButton btnRefresh;
     public javax.swing.JButton btnSearch;
     public javax.swing.JButton btnUpdate;
-    private javax.swing.JButton btn_addImage;
-    private javax.swing.JButton btn_clear;
-    private javax.swing.JButton btn_printIDCard;
-    private javax.swing.JButton btn_sIDsearch;
-    private javax.swing.JTextField entersID;
     private javax.swing.JLabel firstName;
     private javax.swing.JLabel fullMarksSub1;
     private javax.swing.JLabel fullMarksSub2;
     private javax.swing.JLabel fullMarksSub3;
     private javax.swing.JLabel fullMarksSub4;
     private javax.swing.JLabel fullMarksSub5;
-    private javax.swing.JLabel inputPhoto;
     public javax.swing.JButton jButtonAdd;
     public javax.swing.JButton jButtonClear;
     public javax.swing.JButton jButtonDelete;
     public javax.swing.JButton jButtonDelete2;
+    public javax.swing.JButton jButtonIDClear;
+    public javax.swing.JButton jButtonIDPrint;
+    public javax.swing.JButton jButtonIDSearch;
+    public javax.swing.JButton jButtonPicture;
     public javax.swing.JButton jButtonPrint;
     public javax.swing.JButton jButtonRefresh;
     public javax.swing.JButton jButtonRemarks;
@@ -1481,7 +1486,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
+    public javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -1506,8 +1511,14 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     public javax.swing.JLabel jLabelFName;
+    public javax.swing.JLabel jLabelIDAddress;
+    public javax.swing.JLabel jLabelIDAge;
+    public javax.swing.JLabel jLabelIDEmail;
+    public javax.swing.JLabel jLabelIDStdID;
+    public javax.swing.JLabel jLabelIDStdName;
     public javax.swing.JLabel jLabelLName;
     public javax.swing.JLabel jLabelMarksheet;
+    public javax.swing.JLabel jLabelPicture;
     public javax.swing.JLabel jLabelmarkCourse1;
     public javax.swing.JLabel jLabelmarkCourse2;
     public javax.swing.JLabel jLabelmarkCourse3;
@@ -1518,7 +1529,6 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JLabel jLabelmarkStdID;
     public javax.swing.JLabel jLabelmarkStdName;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1526,6 +1536,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    public javax.swing.JPanel jPanelIDCard;
     public javax.swing.JPanel jPanelMarksheet;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1539,6 +1550,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JTextField jTextFieldCourse3;
     public javax.swing.JTextField jTextFieldCourse4;
     public javax.swing.JTextField jTextFieldCourse5;
+    public javax.swing.JTextField jTextFieldIDStdSearch;
     public javax.swing.JTextField jTextFieldRemarks;
     public javax.swing.JTextField jTextFieldSearch2;
     public javax.swing.JTextField jTextFieldStudentID;
@@ -1562,12 +1574,9 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JLabel rank;
     public javax.swing.JLabel remarksInput;
     private javax.swing.JLabel sid;
-    private javax.swing.JLabel sidInput;
     private javax.swing.JLabel sname;
     private javax.swing.JLabel studentInfo_Title;
     private javax.swing.JLabel studentInfo_Title1;
-    private javax.swing.JLabel studentNameInput;
-    private javax.swing.JLabel student_email;
     private javax.swing.JLabel sub1_Input;
     private javax.swing.JLabel sub2_Input;
     private javax.swing.JLabel sub3_Input;
