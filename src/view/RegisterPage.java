@@ -51,6 +51,8 @@ public class RegisterPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        enterSecurityQuestion = new javax.swing.JTextField();
+        reenter_password1 = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         line = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
@@ -77,6 +79,18 @@ public class RegisterPage extends javax.swing.JFrame {
         setFont(new java.awt.Font("Agency FB", 0, 49)); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        enterSecurityQuestion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterSecurityQuestionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(enterSecurityQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 250, 30));
+
+        reenter_password1.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
+        reenter_password1.setForeground(new java.awt.Color(255, 255, 255));
+        reenter_password1.setText("Enter Security Question");
+        getContentPane().add(reenter_password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 500, -1, 30));
+
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/images/logo_transparent_legit (1).png"))); // NOI18N
         getContentPane().add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 30, 293, 81));
 
@@ -84,7 +98,7 @@ public class RegisterPage extends javax.swing.JFrame {
         getContentPane().add(line, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 122, 1074, 14));
 
         btnLogin.setBackground(new java.awt.Color(3, 175, 228));
-        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
         btnLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -94,39 +108,39 @@ public class RegisterPage extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 460, 107, 50));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(897, 450, 260, 60));
 
         register.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
         register.setForeground(new java.awt.Color(255, 255, 255));
         register.setText("Register");
         getContentPane().add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 224, -1, -1));
 
-        firstname.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 18)); // NOI18N
+        firstname.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
         firstname.setForeground(new java.awt.Color(255, 255, 255));
         firstname.setText("First Name");
         getContentPane().add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 319, -1, -1));
 
-        lastname.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 18)); // NOI18N
+        lastname.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
         lastname.setForeground(new java.awt.Color(255, 255, 255));
         lastname.setText("Last Name");
         getContentPane().add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 406, -1, -1));
 
-        username.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 18)); // NOI18N
+        username.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
         username.setForeground(new java.awt.Color(255, 255, 255));
         username.setText("Username");
         getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 498, -1, -1));
 
-        staffID.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 18)); // NOI18N
+        staffID.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
         staffID.setForeground(new java.awt.Color(255, 255, 255));
         staffID.setText("Staff ID");
         getContentPane().add(staffID, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 589, -1, -1));
 
-        create_password.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 18)); // NOI18N
+        create_password.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
         create_password.setForeground(new java.awt.Color(255, 255, 255));
         create_password.setText("Create Password");
         getContentPane().add(create_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, -1, -1));
 
-        reenter_password.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 18)); // NOI18N
+        reenter_password.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
         reenter_password.setForeground(new java.awt.Color(255, 255, 255));
         reenter_password.setText("Re-enter Password");
         getContentPane().add(reenter_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 406, -1, -1));
@@ -164,7 +178,7 @@ public class RegisterPage extends javax.swing.JFrame {
         });
         getContentPane().add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 435, 249, 32));
 
-        resetButton.setBackground(new java.awt.Color(239, 185, 103));
+        resetButton.setBackground(new java.awt.Color(121, 173, 35));
         resetButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         resetButton.setForeground(new java.awt.Color(255, 255, 255));
         resetButton.setText("Clear");
@@ -175,7 +189,7 @@ public class RegisterPage extends javax.swing.JFrame {
                 resetButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(resetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 514, 232, 41));
+        getContentPane().add(resetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 580, 250, 40));
 
         btnRegister.setBackground(new java.awt.Color(212, 45, 45));
         btnRegister.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
@@ -188,7 +202,7 @@ public class RegisterPage extends javax.swing.JFrame {
                 btnRegisterActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 561, 232, 51));
+        getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 630, 250, 51));
 
         regiser_form_enclosure.setBackground(new java.awt.Color(0, 0, 0));
         regiser_form_enclosure.setForeground(new java.awt.Color(241, 254, 255));
@@ -199,7 +213,7 @@ public class RegisterPage extends javax.swing.JFrame {
         background.setBackground(new java.awt.Color(239, 185, 103));
         background.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 18)); // NOI18N
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/images/background.png"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 800));
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1300, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -224,6 +238,10 @@ public class RegisterPage extends javax.swing.JFrame {
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
 
     }//GEN-LAST:event_resetButtonActionPerformed
+
+    private void enterSecurityQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterSecurityQuestionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterSecurityQuestionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -314,12 +332,14 @@ public class RegisterPage extends javax.swing.JFrame {
     public javax.swing.JButton btnLogin;
     public javax.swing.JButton btnRegister;
     private javax.swing.JLabel create_password;
+    private javax.swing.JTextField enterSecurityQuestion;
     private javax.swing.JLabel existingUSer;
     private javax.swing.JLabel firstname;
     private javax.swing.JLabel lastname;
     private javax.swing.JLabel line;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel reenter_password;
+    private javax.swing.JLabel reenter_password1;
     private javax.swing.JLabel regiser_form_enclosure;
     private javax.swing.JLabel register;
     public javax.swing.JButton resetButton;

@@ -41,6 +41,8 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         new_user = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         Login_title = new javax.swing.JLabel();
@@ -59,6 +61,24 @@ public class Login extends javax.swing.JFrame {
         setFont(new java.awt.Font("Agency FB", 0, 49)); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setBackground(new java.awt.Color(216, 162, 22));
+        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Reset Password");
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton1.setBorderPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 500, 110, 30));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Forgot Password?");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, 120, 30));
+
         new_user.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 40)); // NOI18N
         new_user.setForeground(new java.awt.Color(255, 255, 255));
         new_user.setText("New User?");
@@ -75,7 +95,7 @@ public class Login extends javax.swing.JFrame {
         username.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 20)); // NOI18N
         username.setForeground(new java.awt.Color(255, 255, 255));
         username.setText("Username");
-        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 310, 410, 46));
+        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, 410, 46));
 
         password.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 20)); // NOI18N
         password.setForeground(new java.awt.Color(255, 255, 255));
@@ -83,18 +103,20 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 408, -1, -1));
 
         txtUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getContentPane().add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 350, 410, 46));
+        getContentPane().add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 330, 430, 46));
 
-        btnClear.setBackground(new java.awt.Color(239, 200, 99));
-        btnClear.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        btnClear.setBackground(new java.awt.Color(121, 173, 35));
+        btnClear.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         btnClear.setForeground(new java.awt.Color(255, 255, 255));
         btnClear.setText("Clear");
+        btnClear.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnClear.setBorderPainted(false);
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(968, 535, 122, 41));
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 630, 80, 30));
 
         btnRegister.setBackground(new java.awt.Color(235, 47, 47));
         btnRegister.setFont(new java.awt.Font("Segoe UI Semibold", 0, 25)); // NOI18N
@@ -108,7 +130,7 @@ public class Login extends javax.swing.JFrame {
                 btnRegisterActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 160, 60));
+        getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 190, 60));
 
         line.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/images/line.png"))); // NOI18N
         getContentPane().add(line, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 122, 1074, 14));
@@ -117,17 +139,17 @@ public class Login extends javax.swing.JFrame {
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
-        btnLogin.setBorder(null);
+        btnLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnLogin.setBorderPainted(false);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(916, 590, 174, 56));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 610, 174, 56));
 
         txtPassword.setText("jPasswordField1");
-        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 441, 409, 46));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 441, 430, 46));
 
         login_form_enclosure.setBackground(new java.awt.Color(0, 0, 0));
         login_form_enclosure.setForeground(new java.awt.Color(241, 254, 255));
@@ -153,6 +175,10 @@ public class Login extends javax.swing.JFrame {
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
 
     }//GEN-LAST:event_btnClearActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
 
@@ -198,6 +224,8 @@ public class Login extends javax.swing.JFrame {
     public javax.swing.JButton btnClear;
     public javax.swing.JButton btnLogin;
     public javax.swing.JButton btnRegister;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel line;
     private javax.swing.JLabel login_form_enclosure;
