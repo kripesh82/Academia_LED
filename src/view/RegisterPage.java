@@ -84,12 +84,12 @@ public class RegisterPage extends javax.swing.JFrame {
                 enterSecurityQuestionActionPerformed(evt);
             }
         });
-        getContentPane().add(enterSecurityQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 250, 30));
+        getContentPane().add(enterSecurityQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 520, 250, 30));
 
         reenter_password1.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
         reenter_password1.setForeground(new java.awt.Color(255, 255, 255));
         reenter_password1.setText("Enter Security Question");
-        getContentPane().add(reenter_password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 500, -1, 30));
+        getContentPane().add(reenter_password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 490, -1, 30));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/images/logo_transparent_legit (1).png"))); // NOI18N
         getContentPane().add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 30, 293, 81));
