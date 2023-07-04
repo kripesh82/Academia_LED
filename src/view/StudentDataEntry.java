@@ -1239,7 +1239,6 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jButtonmarkSearch.setBorderPainted(false);
         jPanel7.add(jButtonmarkSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 100, 40));
 
-        jTextFieldmarkStdID.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextFieldmarkStdID.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jPanel7.add(jTextFieldmarkStdID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 360, 30));
 
@@ -1251,7 +1250,6 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jButtonmarkPrint.setBorderPainted(false);
         jPanel7.add(jButtonmarkPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, 160, 40));
 
-        jTextFieldRemarks.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextFieldRemarks.setVerifyInputWhenFocusTarget(false);
         jTextFieldRemarks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1571,10 +1569,16 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jPanel9.add(comboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, -1, -1));
 
         labelFeeLName.setBackground(new java.awt.Color(38, 82, 119));
+        labelFeeLName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        labelFeeLName.setForeground(new java.awt.Color(255, 255, 255));
+        labelFeeLName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelFeeLName.setOpaque(true);
         jPanel9.add(labelFeeLName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 240, 40));
 
         lableFeeFName.setBackground(new java.awt.Color(38, 82, 119));
+        lableFeeFName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lableFeeFName.setForeground(new java.awt.Color(255, 255, 255));
+        lableFeeFName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lableFeeFName.setOpaque(true);
         jPanel9.add(lableFeeFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 240, 40));
 
