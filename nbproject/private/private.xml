@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/This%20pc/OneDrive/Documents/NetBeansProjects/Academia_LED/src/view/Login.java</file>
-            <file>file:/C:/Users/This%20pc/OneDrive/Documents/NetBeansProjects/Academia_LED/src/DAO/AttendanceDAO.java</file>
-            <file>file:/C:/Users/This%20pc/OneDrive/Documents/NetBeansProjects/Academia_LED/src/model/AttendanceModel.java</file>
-            <file>file:/C:/Users/This%20pc/OneDrive/Documents/NetBeansProjects/Academia_LED/src/controller/AttendanceController.java</file>
+            <file>file:/C:/Users/SMASHED%20TOMATOES/OneDrive/Documents/NetBeansProjects/Academia_LED/src/connection/DbConnection.java</file>
+            <file>file:/C:/Users/SMASHED%20TOMATOES/OneDrive/Documents/NetBeansProjects/Academia_LED/src/DAO/AttendanceDAO.java</file>
+            <file>file:/C:/Users/SMASHED%20TOMATOES/OneDrive/Documents/NetBeansProjects/Academia_LED/src/view/StudentDataEntry.java</file>
+            <file>file:/C:/Users/SMASHED%20TOMATOES/OneDrive/Documents/NetBeansProjects/Academia_LED/src/controller/AttendanceController.java</file>
         </group>
     </open-files>
 </project-private>

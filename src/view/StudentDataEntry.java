@@ -13,57 +13,67 @@ import DAO.ResultDAO;
 import DAO.MarksheetDAO;
 import DAO.IDCardDAO;
 import DAO.FeeBillDAO;
+import DAO.AttendanceDAO;
 import controller.FeeController;
 import controller.IDCardController;
 import controller.FeeBillController;
+import controller.AttendanceController;
+import model.AttendanceModel;
 import model.FeeModel;
 import model.StudentModel;
 import model.ResultModel;
+
 /**
  *
  * @author neera
  */
 public class StudentDataEntry extends javax.swing.JFrame {
+
     private StudentController controller;
     private ResultController controller2;
     private MarksheetController controller3;
     private IDCardController controller4;
     private FeeController controller5;
     private FeeBillController controller6;
-    
+    private AttendanceController controller7;
+
     /**
      * Creates new form Attendance
      */
     public StudentDataEntry() {
         initComponents();
         StudentModel model = new StudentModel();
-        ResultModel model2=new ResultModel();
-        ResultDAO dao2=new ResultDAO();
+        ResultModel model2 = new ResultModel();
+        ResultDAO dao2 = new ResultDAO();
         StudentDAO dao = new StudentDAO();
-        MarksheetDAO markDao= new MarksheetDAO();
+        MarksheetDAO markDao = new MarksheetDAO();
         IDCardDAO idDAO = new IDCardDAO();
         FeeModel feemodel = new FeeModel();
-        FeeDAO feeDAO = new  FeeDAO();
+        FeeDAO feeDAO = new FeeDAO();
         FeeBillDAO billDAO = new FeeBillDAO();
-       
-        
-        controller = new StudentController(model, dao, this);        
+        AttendanceModel atMod = new AttendanceModel();
+        AttendanceDAO atDAO = new AttendanceDAO();
+
+        controller = new StudentController(model, dao, this);
         controller.start();
-        
-        controller2=new ResultController(model2,dao2,this);
+
+        controller2 = new ResultController(model2, dao2, this);
         controller2.start2();
-        
-        controller3= new MarksheetController(model2,markDao,this);
-        controller3.start1();    
-        
+
+        controller3 = new MarksheetController(model2, markDao, this);
+        controller3.start1();
+
         controller4 = new IDCardController(model, idDAO, this);
         controller4.startID();
-        
+
         controller5 = new FeeController(feemodel, feeDAO, this);
         controller5.startFee();
-        
+
         controller6 = new FeeBillController(feemodel, billDAO, this);
         controller6.startBill();
+
+        controller7 = new AttendanceController(model, atMod, atDAO, this);
+        controller7.atstart();
     }
 
     /**
@@ -283,26 +293,27 @@ public class StudentDataEntry extends javax.swing.JFrame {
         Billframe = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel10 = new javax.swing.JPanel();
-        btn_searchBydate = new javax.swing.JButton();
-        txt_inputSIDtoSearch = new javax.swing.JTextField();
+        jButtonatSearchDate = new javax.swing.JButton();
+        jTextFieldatStdIDSearch = new javax.swing.JTextField();
         jLabel53 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonatClear = new javax.swing.JButton();
         jLabel41 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooserSearch = new com.toedter.calendar.JDateChooser();
         jLabel52 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
-        btn_searchBySID = new javax.swing.JButton();
+        jButtonatSearchStdID = new javax.swing.JButton();
         jLabel55 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableatDisplay = new javax.swing.JTable();
+        jButtonatDelete = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonatAdd = new javax.swing.JButton();
+        jButtonatRefresh = new javax.swing.JButton();
         jLabel42 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        dateChooser = new com.toedter.calendar.JDateChooser();
         jLabel56 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jTableAttendance = new javax.swing.JTable();
         Settings = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1815,16 +1826,16 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(34, 102, 155));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_searchBydate.setBackground(new java.awt.Color(15, 162, 223));
-        btn_searchBydate.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
-        btn_searchBydate.setForeground(new java.awt.Color(255, 255, 255));
-        btn_searchBydate.setText("Search");
-        btn_searchBydate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btn_searchBydate.setBorderPainted(false);
-        jPanel10.add(btn_searchBydate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 190, 40));
+        jButtonatSearchDate.setBackground(new java.awt.Color(15, 162, 223));
+        jButtonatSearchDate.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        jButtonatSearchDate.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonatSearchDate.setText("Search");
+        jButtonatSearchDate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonatSearchDate.setBorderPainted(false);
+        jPanel10.add(jButtonatSearchDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 190, 40));
 
-        txt_inputSIDtoSearch.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel10.add(txt_inputSIDtoSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 290, 40));
+        jTextFieldatStdIDSearch.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel10.add(jTextFieldatStdIDSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 290, 40));
 
         jLabel53.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         jLabel53.setForeground(new java.awt.Color(255, 255, 255));
@@ -1832,13 +1843,13 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabel53.setText("Search By Date:");
         jPanel10.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 320, -1));
 
-        jButton1.setBackground(new java.awt.Color(121, 173, 35));
-        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Clear");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setBorderPainted(false);
-        jPanel10.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, 120, 50));
+        jButtonatClear.setBackground(new java.awt.Color(121, 173, 35));
+        jButtonatClear.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        jButtonatClear.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonatClear.setText("Clear");
+        jButtonatClear.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonatClear.setBorderPainted(false);
+        jPanel10.add(jButtonatClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, 120, 50));
 
         jLabel41.setBackground(new java.awt.Color(78, 171, 202));
         jLabel41.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 24)); // NOI18N
@@ -1847,7 +1858,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabel41.setText("Attendance Search");
         jLabel41.setOpaque(true);
         jPanel10.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 23, 269, 48));
-        jPanel10.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 310, 40));
+        jPanel10.add(jDateChooserSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 310, 40));
 
         jLabel52.setBackground(new java.awt.Color(35, 75, 105));
         jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1861,13 +1872,13 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabel54.setText("Search By Student ID:");
         jPanel10.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 320, -1));
 
-        btn_searchBySID.setBackground(new java.awt.Color(15, 162, 223));
-        btn_searchBySID.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
-        btn_searchBySID.setForeground(new java.awt.Color(255, 255, 255));
-        btn_searchBySID.setText("Search");
-        btn_searchBySID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btn_searchBySID.setBorderPainted(false);
-        jPanel10.add(btn_searchBySID, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 190, 40));
+        jButtonatSearchStdID.setBackground(new java.awt.Color(15, 162, 223));
+        jButtonatSearchStdID.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        jButtonatSearchStdID.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonatSearchStdID.setText("Search");
+        jButtonatSearchStdID.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonatSearchStdID.setBorderPainted(false);
+        jPanel10.add(jButtonatSearchStdID, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 190, 40));
 
         jLabel55.setBackground(new java.awt.Color(35, 75, 105));
         jLabel55.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1875,7 +1886,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabel55.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         jPanel10.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 400, 240));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableatDisplay.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1883,33 +1894,41 @@ public class StudentDataEntry extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Student ID", "Student Name", "Date", "Attendance"
             }
         ));
-        jScrollPane4.setViewportView(jTable2);
+        jScrollPane4.setViewportView(jTableatDisplay);
 
         jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 980, 610));
+
+        jButtonatDelete.setText("Delete Data on Table");
+        jButtonatDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonatDeleteActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButtonatDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 603, 170, 50));
 
         jTabbedPane1.addTab("Attendance Search", jPanel10);
 
         jPanel11.setBackground(new java.awt.Color(34, 102, 155));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setBackground(new java.awt.Color(65, 186, 243));
-        jButton2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Add");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton2.setBorderPainted(false);
-        jPanel11.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 120, 40));
+        jButtonatAdd.setBackground(new java.awt.Color(65, 186, 243));
+        jButtonatAdd.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        jButtonatAdd.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonatAdd.setText("Add");
+        jButtonatAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonatAdd.setBorderPainted(false);
+        jPanel11.add(jButtonatAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 120, 40));
 
-        jButton3.setBackground(new java.awt.Color(25, 147, 67));
-        jButton3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Refresh");
-        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton3.setBorderPainted(false);
-        jPanel11.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 120, 40));
+        jButtonatRefresh.setBackground(new java.awt.Color(25, 147, 67));
+        jButtonatRefresh.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        jButtonatRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonatRefresh.setText("Refresh");
+        jButtonatRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonatRefresh.setBorderPainted(false);
+        jPanel11.add(jButtonatRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 120, 40));
 
         jLabel42.setBackground(new java.awt.Color(78, 171, 202));
         jLabel42.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 24)); // NOI18N
@@ -1918,7 +1937,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabel42.setText("Attendance Edit");
         jLabel42.setOpaque(true);
         jPanel11.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 23, 269, 48));
-        jPanel11.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 270, 40));
+        jPanel11.add(dateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 270, 40));
 
         jLabel56.setBackground(new java.awt.Color(35, 75, 105));
         jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1926,7 +1945,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabel56.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         jPanel11.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 400, 230));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAttendance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1934,10 +1953,18 @@ public class StudentDataEntry extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Student ID", "Student Name", "Date", "Attendance"
             }
-        ));
-        jScrollPane5.setViewportView(jTable3);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(jTableAttendance);
 
         jPanel11.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 1020, 610));
 
@@ -2100,6 +2127,10 @@ public class StudentDataEntry extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPrintBillActionPerformed
 
+    private void jButtonatDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonatDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonatDeleteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2161,9 +2192,8 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JButton btnSearchBill;
     public javax.swing.JButton btnSearchTable;
     public javax.swing.JButton btnUpdate;
-    private javax.swing.JButton btn_searchBySID;
-    private javax.swing.JButton btn_searchBydate;
     public javax.swing.JComboBox<String> comboBox;
+    public com.toedter.calendar.JDateChooser dateChooser;
     public javax.swing.JTable feeTable;
     private javax.swing.JLabel firstName;
     private javax.swing.JLabel fullMarksSub1;
@@ -2173,9 +2203,6 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private javax.swing.JLabel fullMarksSub5;
     private javax.swing.JLabel inputBoxFrame;
     public javax.swing.JLabel inputDate1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     public javax.swing.JButton jButtonAdd;
     public javax.swing.JButton jButtonClear;
     public javax.swing.JButton jButtonDelete;
@@ -2190,11 +2217,16 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JButton jButtonSearch;
     public javax.swing.JButton jButtonSearch2;
     public javax.swing.JButton jButtonUpdate;
+    public javax.swing.JButton jButtonatAdd;
+    public javax.swing.JButton jButtonatClear;
+    public javax.swing.JButton jButtonatDelete;
+    public javax.swing.JButton jButtonatRefresh;
+    public javax.swing.JButton jButtonatSearchDate;
+    public javax.swing.JButton jButtonatSearchStdID;
     public javax.swing.JButton jButtonmarkClear;
     public javax.swing.JButton jButtonmarkPrint;
     public javax.swing.JButton jButtonmarkSearch;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    public com.toedter.calendar.JDateChooser jDateChooserSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2283,7 +2315,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JLabel jLabelmarkStdID;
     public javax.swing.JLabel jLabelmarkStdName;
     public javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
+    public javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -2304,8 +2336,8 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JTabbedPane jTabbedPane2;
     public javax.swing.JTable jTable;
     public javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
+    public javax.swing.JTable jTableAttendance;
+    public javax.swing.JTable jTableatDisplay;
     private javax.swing.JTextField jTextField1;
     public javax.swing.JTextField jTextFieldCourse1;
     public javax.swing.JTextField jTextFieldCourse2;
@@ -2316,6 +2348,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JTextField jTextFieldRemarks;
     public javax.swing.JTextField jTextFieldSearch2;
     public javax.swing.JTextField jTextFieldStudentID;
+    public javax.swing.JTextField jTextFieldatStdIDSearch;
     public javax.swing.JTextField jTextFieldmarkStdID;
     public javax.swing.JPanel jpanelBill;
     public javax.swing.JLabel labelFeeLName;
@@ -2364,7 +2397,6 @@ public class StudentDataEntry extends javax.swing.JFrame {
     public javax.swing.JTextField txtOthers;
     public javax.swing.JTextField txtPhoneNumber;
     public javax.swing.JTextField txtTution;
-    private javax.swing.JTextField txt_inputSIDtoSearch;
     public javax.swing.JLabel validTillLabel;
     // End of variables declaration//GEN-END:variables
 }

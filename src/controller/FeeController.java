@@ -14,15 +14,15 @@ import model.FeeModel;
 import view.StudentDataEntry;
 
 public class FeeController implements ActionListener {
-    private FeeModel mod;
-    private FeeDAO modDAO;
+    private FeeModel feemod;
+    private FeeDAO feeDAO;
     private StudentDataEntry feepage;
     private JTable jTable;
     private JButton jButtonPrint;
 
-    public FeeController(FeeModel mod, FeeDAO modDAO, StudentDataEntry feepage) {
-        this.mod = mod;
-        this.modDAO = modDAO;
+    public FeeController(FeeModel feemod, FeeDAO feeDAO, StudentDataEntry feepage) {
+        this.feemod = feemod;
+        this.feeDAO = feeDAO;
         this.feepage = feepage;
         this.jButtonPrint = feepage.btnFeePrint;
 
@@ -51,19 +51,19 @@ public class FeeController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == feepage.btnFeeAdd) {
             if (validateFields()) {
-                mod.setStudent_id(Integer.parseInt(feepage.txtFeeID.getText()));
-                mod.setFirst_name(feepage.lableFeeFName.getText());
-                mod.setLast_name(feepage.labelFeeLName.getText());
-                mod.setSelectedComboBoxOption(feepage.comboBox.getSelectedItem().toString());
-                mod.setTution(Float.parseFloat(feepage.txtTution.getText()));
-                mod.setEca(Float.parseFloat(feepage.txtECA.getText()));
-                mod.setMic(Float.parseFloat(feepage.txtMic.getText()));
-                mod.setOther(Float.parseFloat(feepage.txtOthers.getText()));
-                mod.setDue(Float.parseFloat(feepage.txtDue.getText()));
-                float total = (float) calculateTotal(mod);
-                mod.setTotal(total);
+                feemod.setStudent_id(Integer.parseInt(feepage.txtFeeID.getText()));
+                feemod.setFirst_name(feepage.lableFeeFName.getText());
+                feemod.setLast_name(feepage.labelFeeLName.getText());
+                feemod.setSelectedComboBoxOption(feepage.comboBox.getSelectedItem().toString());
+                feemod.setTution(Float.parseFloat(feepage.txtTution.getText()));
+                feemod.setEca(Float.parseFloat(feepage.txtECA.getText()));
+                feemod.setMic(Float.parseFloat(feepage.txtMic.getText()));
+                feemod.setOther(Float.parseFloat(feepage.txtOthers.getText()));
+                feemod.setDue(Float.parseFloat(feepage.txtDue.getText()));
+                float total = (float) calculateTotal(feemod);
+                feemod.setTotal(total);
 
-                if (modDAO.add(mod)) {
+                if (feeDAO.add(feemod)) {
                     JOptionPane.showMessageDialog(null, "Added Successfully");
                     clear();
                     refreshTable();
@@ -76,19 +76,19 @@ public class FeeController implements ActionListener {
 
 if (e.getSource() == feepage.btnFeeUpdate) {
     if (validateFields()) {
-        mod.setStudent_id(Integer.parseInt(feepage.txtFeeID.getText()));
-        mod.setFirst_name(feepage.lableFeeFName.getText());
-        mod.setLast_name(feepage.labelFeeLName.getText());
-        mod.setSelectedComboBoxOption(feepage.comboBox.getSelectedItem().toString()); // Updated code
-        mod.setTution(Float.parseFloat(feepage.txtTution.getText()));
-        mod.setEca(Float.parseFloat(feepage.txtECA.getText()));
-        mod.setMic(Float.parseFloat(feepage.txtMic.getText()));
-        mod.setOther(Float.parseFloat(feepage.txtOthers.getText()));
-        mod.setDue(Float.parseFloat(feepage.txtDue.getText()));
-        float total = (float) calculateTotal(mod);
-        mod.setTotal(total);
+        feemod.setStudent_id(Integer.parseInt(feepage.txtFeeID.getText()));
+        feemod.setFirst_name(feepage.lableFeeFName.getText());
+        feemod.setLast_name(feepage.labelFeeLName.getText());
+        feemod.setSelectedComboBoxOption(feepage.comboBox.getSelectedItem().toString()); // Updated code
+        feemod.setTution(Float.parseFloat(feepage.txtTution.getText()));
+        feemod.setEca(Float.parseFloat(feepage.txtECA.getText()));
+        feemod.setMic(Float.parseFloat(feepage.txtMic.getText()));
+        feemod.setOther(Float.parseFloat(feepage.txtOthers.getText()));
+        feemod.setDue(Float.parseFloat(feepage.txtDue.getText()));
+        float total = (float) calculateTotal(feemod);
+        feemod.setTotal(total);
 
-        if (modDAO.update(mod)) {
+        if (feeDAO.update(feemod)) {
             JOptionPane.showMessageDialog(null, "Updated Successfully");
             clear();
             refreshTable();
@@ -102,9 +102,9 @@ if (e.getSource() == feepage.btnFeeUpdate) {
 
         if (e.getSource() == feepage.btnFeeDelete) {
             if (validateIDField()) {
-                mod.setStudent_id(Integer.parseInt(feepage.txtFeeStudentSearch.getText()));
+                feemod.setStudent_id(Integer.parseInt(feepage.txtFeeStudentSearch.getText()));
 
-                if (modDAO.delete(mod)) {
+                if (feeDAO.delete(feemod)) {
                     JOptionPane.showMessageDialog(null, "Deleted Successfully");
                     clear();
                     refreshTable();
@@ -117,18 +117,18 @@ if (e.getSource() == feepage.btnFeeUpdate) {
 
         if (e.getSource() == feepage.btnSearchTable) {
             if (validateIDField()) {
-                mod.setStudent_id(Integer.parseInt(feepage.txtFeeStudentSearch.getText()));
+                feemod.setStudent_id(Integer.parseInt(feepage.txtFeeStudentSearch.getText()));
 
-                if (modDAO.search2(mod)) {
-                    feepage.txtFeeID.setText(String.valueOf(mod.getStudent_id()));
-                    feepage.lableFeeFName.setText(mod.getFirst_name());
-                    feepage.labelFeeLName.setText(mod.getLast_name());
-                    feepage.comboBox.setActionCommand(mod.getSelectedComboBoxOption());
-                    feepage.txtTution.setText(String.valueOf(mod.getTution()));
-                    feepage.txtECA.setText(String.valueOf(mod.getEca()));
-                    feepage.txtMic.setText(String.valueOf(mod.getMic()));
-                    feepage.txtOthers.setText(String.valueOf(mod.getOther()));
-                    feepage.txtDue.setText(String.valueOf(mod.getDue()));
+                if (feeDAO.search2(feemod)) {
+                    feepage.txtFeeID.setText(String.valueOf(feemod.getStudent_id()));
+                    feepage.lableFeeFName.setText(feemod.getFirst_name());
+                    feepage.labelFeeLName.setText(feemod.getLast_name());
+                    feepage.comboBox.setActionCommand(feemod.getSelectedComboBoxOption());
+                    feepage.txtTution.setText(String.valueOf(feemod.getTution()));
+                    feepage.txtECA.setText(String.valueOf(feemod.getEca()));
+                    feepage.txtMic.setText(String.valueOf(feemod.getMic()));
+                    feepage.txtOthers.setText(String.valueOf(feemod.getOther()));
+                    feepage.txtDue.setText(String.valueOf(feemod.getDue()));
                 } else {
                     JOptionPane.showMessageDialog(null, "No Record Found");
                     clear();
@@ -139,12 +139,12 @@ if (e.getSource() == feepage.btnFeeUpdate) {
 
         if (e.getSource() == feepage.btnFeeSearch) {
             if (validateIDField2()) {
-                mod.setStudent_id(Integer.parseInt(feepage.txtFeeID.getText()));
+                feemod.setStudent_id(Integer.parseInt(feepage.txtFeeID.getText()));
 
-                if (modDAO.search(mod)) {
-                    feepage.txtFeeID.setText(String.valueOf(mod.getStudent_id()));
-                    feepage.lableFeeFName.setText(mod.getFirst_name());
-                    feepage.labelFeeLName.setText(mod.getLast_name());
+                if (feeDAO.search(feemod)) {
+                    feepage.txtFeeID.setText(String.valueOf(feemod.getStudent_id()));
+                    feepage.lableFeeFName.setText(feemod.getFirst_name());
+                    feepage.labelFeeLName.setText(feemod.getLast_name());
                 } else {
                     JOptionPane.showMessageDialog(null, "No Record Found");
                     clear();
@@ -191,7 +191,7 @@ private void refreshTable() {
     int selectedRowIndex = jTable.getSelectedRow(); // Remember the selected row index
 
     // Retrieve all students from the database
-    List<FeeModel> result = modDAO.getAllStudents();
+    List<FeeModel> result = feeDAO.getAllStudents();
 
     model.setRowCount(0); // Clear existing table data
 
@@ -224,20 +224,20 @@ private void refreshTable() {
         model.setRowCount(0); // Clear existing table data
 
         if (validateIDField2()) {
-            mod.setStudent_id(Integer.parseInt(feepage.txtFeeID.getText()));
+            feemod.setStudent_id(Integer.parseInt(feepage.txtFeeID.getText()));
 
-            if (modDAO.search(mod)) {
+            if (feeDAO.search(feemod)) {
                 Object[] row = {
-                    mod.getStudent_id(),
-                    mod.getFirst_name(),
-                    mod.getLast_name(),
-                    mod.getSelectedComboBoxOption(), // Add selected month to the table
-                    mod.getTution(),
-                    mod.getEca(),
-                    mod.getMic(),
-                    mod.getOther(),
-                    mod.getDue(),
-                    mod.getTotal()
+                    feemod.getStudent_id(),
+                    feemod.getFirst_name(),
+                    feemod.getLast_name(),
+                    feemod.getSelectedComboBoxOption(), // Add selected month to the table
+                    feemod.getTution(),
+                    feemod.getEca(),
+                    feemod.getMic(),
+                    feemod.getOther(),
+                    feemod.getDue(),
+                    feemod.getTotal()
                 };
                 model.addRow(row);
             } else {

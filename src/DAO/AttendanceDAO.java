@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Date;
+import model.AttendanceModel;
 
 public class AttendanceDAO extends DbConnection {
     public boolean addAttendanceData(int studentId, String studentName, String date, String attendance) {
@@ -98,6 +99,61 @@ public class AttendanceDAO extends DbConnection {
         }
 
         return attendanceList;
+    }
+    
+    public List<AttendanceModel> getAttendanceDataByStudentAndDate(int studentId, String date) {
+        List<AttendanceModel> attendanceList = new ArrayList<>();
+        PreparedStatement ps = null;
+        Connection conn = dbConnect();
+        ResultSet rs = null;
+
+        String query = "SELECT * FROM attendance WHERE atStudent_id = ? AND atdate = ?";
+
+        try {
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, studentId);
+            ps.setString(2, date);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                AttendanceModel attendance = new AttendanceModel();
+                attendance.setAtStudentId(rs.getInt("atStudent_id"));
+                attendance.setAtStudentName(rs.getString("atStudent_Name"));
+                attendance.setAtDate(rs.getDate("atdate"));
+                attendance.setAttendanceStatus(rs.getString("attendance"));
+
+                attendanceList.add(attendance);
+            }
+        } catch (Exception e) {
+            System.err.println(e);
+        } finally {
+            closeResources(rs, ps, conn);
+        }
+
+        return attendanceList;
+    }
+    
+    public boolean deleteAttendanceData(int studentId, String date) {
+        PreparedStatement ps = null;
+        Connection conn = dbConnect();
+        String query = "DELETE FROM attendance WHERE atStudent_id = ? AND atdate = ?";
+
+        try {
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, studentId);
+            ps.setString(2, date);
+
+            int rowsAffected = ps.executeUpdate();
+
+            // If rowsAffected is greater than 0, it means data was deleted successfully
+            return rowsAffected > 0;
+        } catch (Exception e) {
+            System.err.println(e);
+            return false;
+        } finally {
+            closeResources(ps, conn);
+        }
     }
 
     private void closeResources(ResultSet rs, PreparedStatement ps, Connection conn) {
