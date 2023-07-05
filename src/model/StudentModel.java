@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -17,6 +18,16 @@ public class StudentModel {
     private String email;
     private String phone_number;
     private String filename;
+    
+    private JComboBox<String> settingCombobox;
+
+    public JComboBox<String> getSettingCombobox() {
+        return settingCombobox;
+    }
+
+    public void setSettingCombobox(JComboBox<String> settingCombobox) {
+        this.settingCombobox = settingCombobox;
+    }
 
     public int getStudent_id() {
         return student_id;

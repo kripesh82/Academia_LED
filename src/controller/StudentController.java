@@ -12,6 +12,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import model.StudentModel;
 import view.StudentDataEntry;
+import view.Login;
+import view.ResetPassword;
 
 /**
  *
@@ -33,8 +35,7 @@ public class StudentController implements ActionListener {
         this.btnPrint = stupage.btnPrint;
         
         this.btnPrint.addActionListener(this);
-        
-        
+        this.stupage.settingsCombobox.addActionListener(this);
         this.stupage.btnAdd.addActionListener(this);
         this.stupage.btnUpdate.addActionListener(this);
         this.stupage.jButtonDelete.addActionListener(this);
@@ -161,6 +162,27 @@ public class StudentController implements ActionListener {
                 System.out.println(ex.getMessage());
             }
         }
+        if (e.getSource() == stupage.settingsCombobox) {
+            String selectedOption = (String) stupage.settingsCombobox.getSelectedItem();
+            
+            if (selectedOption.equals("Log Out")) {
+                int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
+    
+                if (option == JOptionPane.YES_OPTION) {
+                    JOptionPane.showMessageDialog(null, "Logout successfully");
+                    Login lp = new Login();
+                    lp.setVisible(true);
+                    stupage.dispose(); 
+                } else if (option == JOptionPane.NO_OPTION) {
+                        JOptionPane.getRootFrame().dispose();
+    
+    }
+            } else if (selectedOption.equals("Reset Password")) {
+                    ResetPassword reset = new ResetPassword();
+                    reset.setVisible(true);
+            }
+        }
+        
         
         if(e.getSource() == stupage.btnClear){
             clear();

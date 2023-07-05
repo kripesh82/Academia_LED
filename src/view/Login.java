@@ -41,7 +41,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btnForgotPassword = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         new_user = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
@@ -61,18 +61,18 @@ public class Login extends javax.swing.JFrame {
         setFont(new java.awt.Font("Agency FB", 0, 49)); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(216, 162, 22));
-        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Reset Password");
-        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnForgotPassword.setBackground(new java.awt.Color(216, 162, 22));
+        btnForgotPassword.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        btnForgotPassword.setForeground(new java.awt.Color(255, 255, 255));
+        btnForgotPassword.setText("Forgot Password");
+        btnForgotPassword.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnForgotPassword.setBorderPainted(false);
+        btnForgotPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnForgotPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 500, 110, 30));
+        getContentPane().add(btnForgotPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 500, 110, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -176,9 +176,9 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnClearActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnForgotPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnForgotPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnForgotPasswordActionPerformed
 
 
 
@@ -222,9 +222,9 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Login_title;
     public javax.swing.JButton btnClear;
+    public javax.swing.JButton btnForgotPassword;
     public javax.swing.JButton btnLogin;
     public javax.swing.JButton btnRegister;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel line;

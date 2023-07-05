@@ -51,7 +51,7 @@ public class RegisterPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        enterSecurityQuestion = new javax.swing.JTextField();
+        txtSecurityQuestion = new javax.swing.JTextField();
         reenter_password1 = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         line = new javax.swing.JLabel();
@@ -79,12 +79,13 @@ public class RegisterPage extends javax.swing.JFrame {
         setFont(new java.awt.Font("Agency FB", 0, 49)); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        enterSecurityQuestion.addActionListener(new java.awt.event.ActionListener() {
+        txtSecurityQuestion.setText("Enter your Pet's Name");
+        txtSecurityQuestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enterSecurityQuestionActionPerformed(evt);
+                txtSecurityQuestionActionPerformed(evt);
             }
         });
-        getContentPane().add(enterSecurityQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 520, 250, 30));
+        getContentPane().add(txtSecurityQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 520, 250, 30));
 
         reenter_password1.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
         reenter_password1.setForeground(new java.awt.Color(255, 255, 255));
@@ -239,9 +240,9 @@ public class RegisterPage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_resetButtonActionPerformed
 
-    private void enterSecurityQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterSecurityQuestionActionPerformed
+    private void txtSecurityQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecurityQuestionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_enterSecurityQuestionActionPerformed
+    }//GEN-LAST:event_txtSecurityQuestionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,7 +333,6 @@ public class RegisterPage extends javax.swing.JFrame {
     public javax.swing.JButton btnLogin;
     public javax.swing.JButton btnRegister;
     private javax.swing.JLabel create_password;
-    private javax.swing.JTextField enterSecurityQuestion;
     private javax.swing.JLabel existingUSer;
     private javax.swing.JLabel firstname;
     private javax.swing.JLabel lastname;
@@ -348,6 +348,7 @@ public class RegisterPage extends javax.swing.JFrame {
     public javax.swing.JTextField txtFirstName;
     public javax.swing.JTextField txtLastName;
     public javax.swing.JPasswordField txtPassword;
+    public javax.swing.JTextField txtSecurityQuestion;
     public javax.swing.JTextField txtStaffId;
     public javax.swing.JTextField txtUsername;
     private javax.swing.JLabel username;

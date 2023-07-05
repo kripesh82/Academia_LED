@@ -14,7 +14,7 @@ public boolean register(RegistrationModel mod) {
     PreparedStatement ps = null;
     Connection conn = dbConnect();
 
-    String sql = "INSERT INTO users (first_name, last_name, username, staff_id, password) VALUES (?, ?,?, ?, ?)";
+    String sql = "INSERT INTO users (first_name, last_name, username, staff_id, password,security) VALUES (?, ?,?, ?, ?,?)";
 
     try {
         if (checkUsernameExists(mod.getUsername(), conn)) {
@@ -27,6 +27,7 @@ public boolean register(RegistrationModel mod) {
         ps.setString(3, mod.getUsername());
         ps.setString(4, mod.getStaffid());
         ps.setString(5, mod.getPassword());
+        ps.setString(6, mod.getSecurity());
 
         ps.execute();
         return true;

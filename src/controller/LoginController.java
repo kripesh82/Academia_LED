@@ -8,21 +8,25 @@ import DAO.LoginDAO;
 import view.Login;
 import view.RegisterPage;
 import view.StudentDataEntry;
+import view.ForgotPassword;
 
 public class LoginController implements ActionListener {
     private LoginModel mod;
     private LoginDAO modDAO;
     private RegisterPage regpage;
     private Login loginpage;
+    private ForgotPassword forgotPage;
 
     public LoginController(LoginModel mod, LoginDAO modDAO, Login loginpage) {
         this.mod = mod;
         this.modDAO = modDAO;
         this.loginpage = loginpage;
-
+        
         this.loginpage.btnRegister.addActionListener(this);
         this.loginpage.btnLogin.addActionListener(this);
         this.loginpage.btnClear.addActionListener(this);
+        this.loginpage.btnForgotPassword.addActionListener(this);
+        
     }
         public void start() {
         loginpage.setTitle("Login Page");
@@ -57,6 +61,11 @@ public class LoginController implements ActionListener {
         } else if (e.getSource() == loginpage.btnClear) {
             loginpage.txtUsername.setText(null);
             loginpage.txtPassword.setText(null);
+        }
+            else if (e.getSource() == loginpage.btnForgotPassword) {
+            forgotPage = new ForgotPassword();
+            forgotPage.setVisible(true);
+            loginpage.dispose();
         }
     }
 }

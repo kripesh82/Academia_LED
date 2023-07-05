@@ -38,6 +38,7 @@ public class RegistrationController implements ActionListener {
                 mod.setStaffid((regpage.txtStaffId.getText()));
                 mod.setPassword(regpage.txtPassword.getText());
                 mod.setConpassword(regpage.txtConfirmPassword.getText());
+                mod.setSecurity(regpage.txtSecurityQuestion.getText());
 
                 if (!mod.getPassword().equals(mod.getConpassword())) {
                     JOptionPane.showMessageDialog(null, "Password and Confirm Password do not match");
@@ -75,11 +76,12 @@ public class RegistrationController implements ActionListener {
         regpage.txtStaffId.setText(null);
         regpage.txtPassword.setText(null);
         regpage.txtConfirmPassword.setText(null);
+        regpage.txtSecurityQuestion.setText(null);
     }
 
     public boolean validateFields() {
         if (regpage.txtFirstName.getText().isEmpty() || regpage.txtLastName.getText().isEmpty()
-                || regpage.txtUsername.getText().isEmpty() || regpage.txtStaffId.getText().isEmpty()
+                || regpage.txtUsername.getText().isEmpty() || regpage.txtStaffId.getText().isEmpty() || regpage.txtSecurityQuestion.getText().isEmpty()
                 || regpage.txtPassword.getText().isEmpty() || regpage.txtConfirmPassword.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill in all the fields");
             return false;
@@ -89,6 +91,7 @@ public class RegistrationController implements ActionListener {
             || regpage.txtUsername.getText().equals("Enter Username")
             || regpage.txtStaffId.getText().equals("Enter StaffId")
             || regpage.txtPassword.getText().equals("Enter Password")
+            || regpage.txtPassword.getText().equals("Enter your Pet's Name")
             || regpage.txtConfirmPassword.getText().equals("Confirm Password")) {
             JOptionPane.showMessageDialog(null, "Please enter valid information");
             return false;

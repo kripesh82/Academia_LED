@@ -9,8 +9,16 @@ package model;
  * @author User
  */
 public class RegistrationModel {
-    String fname,lname,username,staffid,password,conpassword
+    String fname,lname,username,staffid,password,conpassword,security;
     ;
+
+    public String getSecurity() {
+        return security;
+    }
+
+    public void setSecurity(String security) {
+        this.security = security;
+    }
 
     public String getFname() {
         return fname;
