@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/Academia_LED/src/controller/StudentController.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/Academia_LED/src/DAO/ResetPasswordDAO.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/Academia_LED/src/model/ResetPasswordModel.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/Academia_LED/src/controller/ForgotPasswordConroller.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/Academia_LED/src/controller/ResetPasswordController.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/Academia_LED/src/DAO/ForgotPasswordDAO.java</file>
+            <file>file:/C:/Users/USER/OneDrive/Documents/NetBeansProjects/Academia_LED/src/model/ForgotPasswordModel.java</file>
         </group>
     </open-files>
 </project-private>
