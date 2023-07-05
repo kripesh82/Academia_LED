@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.*;
 import java.sql.PreparedStatement;
-
+import model.ResetPasswordModel;
 /**
  *
  * @author User

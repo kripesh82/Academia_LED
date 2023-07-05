@@ -6,9 +6,9 @@ import javax.swing.JOptionPane;
 import model.ForgotPasswordModel;
 import java.sql.*;
 import javax.swing.JButton;
-import view.LoginPage;
+import view.Login;
 import view.ForgotPassword;
-import model.ForgotPasswordDAO;
+import DAO.ForgotPasswordDAO;
 
 public class ForgotPasswordConroller implements ActionListener {
 
@@ -39,7 +39,7 @@ public class ForgotPasswordConroller implements ActionListener {
                 if (fpmod.getNew_password().equals(fpmod.getConfirm_password())) {
                     if (fpDAO.update(fpmod)) {
                         JOptionPane.showMessageDialog(null, "Password Changed Sucessfully");
-                        LoginPage lp = new LoginPage();
+                        Login lp = new Login();
                         lp.show();
                         fpPage.dispose();
                         

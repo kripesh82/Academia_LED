@@ -6,10 +6,10 @@ import javax.swing.JOptionPane;
 import model.ResetPasswordModel;
 import java.sql.*;
 import javax.swing.JButton;
-import view.LoginPage;
+import view.Login;
 import view.ResetPassword;
-import model.ResetPasswordDAO;
-
+import DAO.ResetPasswordDAO;
+import view.StudentDataEntry;
 public class ResetPasswordController implements ActionListener {
 
     private ResetPasswordModel mod;
@@ -38,11 +38,11 @@ public class ResetPasswordController implements ActionListener {
 
                 if (mod.getNew_password().equals(mod.getConfirm_password())) {
                     if (resetDAO.update(mod)) {
-                        JOptionPane.showMessageDialog(null, "Updated Successfully");
-                        LoginPage lp = new LoginPage();
+                        JOptionPane.showMessageDialog(null, "Password Changed Sucessfully");
+                        Login lp = new Login();
                         lp.show();
                         resetPage.dispose();
-                        
+
                     } else {
                         JOptionPane.showMessageDialog(null, "Error in Updating");
                     }

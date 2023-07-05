@@ -3,18 +3,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
+import controller.ResetPasswordController;
+import DAO.ResetPasswordDAO;
+import model.ResetPasswordModel;
 /**
  *
  * @author neera
  */
 public class ResetPassword extends javax.swing.JFrame {
+    private ResetPasswordController controller;
+
 
     /**
      * Creates new form ResetPassword
      */
     public ResetPassword() {
         initComponents();
+        ResetPasswordModel model = new ResetPasswordModel();
+        ResetPasswordDAO dao = new ResetPasswordDAO();
+        
+        controller = new ResetPasswordController(model, dao, this);
+        
+        controller.start();
     }
 
     /**
@@ -26,14 +36,14 @@ public class ResetPassword extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        txt_oldPassword = new javax.swing.JTextField();
+        txtOldPassword = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txt_newPassword = new javax.swing.JTextField();
+        txtNewPassword = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txt_confirmPassword = new javax.swing.JTextField();
-        txt_username = new javax.swing.JTextField();
+        txtConfirmPassword = new javax.swing.JTextField();
+        txtUsernameReset = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -45,36 +55,34 @@ public class ResetPassword extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 1280, 800));
-        setMaximumSize(new java.awt.Dimension(1280, 800));
-        setPreferredSize(new java.awt.Dimension(1280, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(186, 47, 47));
-        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Reset");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setBorderPainted(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 650, 300, 50));
+        btnReset.setBackground(new java.awt.Color(186, 47, 47));
+        btnReset.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
+        btnReset.setText("Reset");
+        btnReset.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnReset.setBorderPainted(false);
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 650, 300, 50));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Username:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, -1, -1));
-        getContentPane().add(txt_oldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, 270, 30));
+        getContentPane().add(txtOldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, 270, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Old Password:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 330, -1, -1));
-        getContentPane().add(txt_newPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 460, 270, 30));
+        getContentPane().add(txtNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 460, 270, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("New Password:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 430, -1, -1));
-        getContentPane().add(txt_confirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 560, 270, 30));
-        getContentPane().add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 260, 30));
+        getContentPane().add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 560, 270, 30));
+        getContentPane().add(txtUsernameReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 260, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -148,7 +156,7 @@ public class ResetPassword extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton btnReset;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -159,9 +167,9 @@ public class ResetPassword extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel line;
     private javax.swing.JLabel logo;
-    private javax.swing.JTextField txt_confirmPassword;
-    private javax.swing.JTextField txt_newPassword;
-    private javax.swing.JTextField txt_oldPassword;
-    private javax.swing.JTextField txt_username;
+    public javax.swing.JTextField txtConfirmPassword;
+    public javax.swing.JTextField txtNewPassword;
+    public javax.swing.JTextField txtOldPassword;
+    public javax.swing.JTextField txtUsernameReset;
     // End of variables declaration//GEN-END:variables
 }

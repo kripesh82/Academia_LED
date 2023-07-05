@@ -3,18 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+import controller.ForgotPasswordConroller;
+import DAO.ForgotPasswordDAO;
+import model.ForgotPasswordModel;
 
 /**
  *
  * @author neera
  */
 public class ForgotPassword extends javax.swing.JFrame {
-
+    private ForgotPasswordConroller controller;
     /**
      * Creates new form ResetPassword
      */
     public ForgotPassword() {
-        initComponents();
+        initComponents();        
+        ForgotPasswordModel model = new ForgotPasswordModel();
+        ForgotPasswordDAO dao = new ForgotPasswordDAO();
+        
+        controller = new ForgotPasswordConroller(model, dao, this);
+        
+        controller.start();
     }
 
     /**
@@ -27,14 +36,14 @@ public class ForgotPassword extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnChangePass = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        txt_oldPassword = new javax.swing.JTextField();
+        txtSecurityQuestion = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txt_newPassword = new javax.swing.JTextField();
+        txtNewPassword = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txt_confirmPassword = new javax.swing.JTextField();
-        txt_username = new javax.swing.JTextField();
+        txtConNewPassword = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -53,32 +62,32 @@ public class ForgotPassword extends javax.swing.JFrame {
         jLabel7.setText("What is the name of your pet??");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(190, 146, 32));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Change Password");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setBorderPainted(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 640, 310, 60));
+        btnChangePass.setBackground(new java.awt.Color(190, 146, 32));
+        btnChangePass.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnChangePass.setForeground(new java.awt.Color(255, 255, 255));
+        btnChangePass.setText("Change Password");
+        btnChangePass.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnChangePass.setBorderPainted(false);
+        getContentPane().add(btnChangePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 640, 310, 60));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Username:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
-        getContentPane().add(txt_oldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 520, 270, 30));
+        getContentPane().add(txtSecurityQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 520, 270, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Security Question: ");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, -1, -1));
-        getContentPane().add(txt_newPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 390, 280, 30));
+        getContentPane().add(txtNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 390, 280, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("New Password:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 350, -1, -1));
-        getContentPane().add(txt_confirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, 280, 30));
-        getContentPane().add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 270, 30));
+        getContentPane().add(txtConNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, 280, 30));
+        getContentPane().add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 270, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,7 +162,7 @@ public class ForgotPassword extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton btnChangePass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -165,9 +174,9 @@ public class ForgotPassword extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel line;
     private javax.swing.JLabel logo;
-    private javax.swing.JTextField txt_confirmPassword;
-    private javax.swing.JTextField txt_newPassword;
-    private javax.swing.JTextField txt_oldPassword;
-    private javax.swing.JTextField txt_username;
+    public javax.swing.JTextField txtConNewPassword;
+    public javax.swing.JTextField txtNewPassword;
+    public javax.swing.JTextField txtSecurityQuestion;
+    public javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

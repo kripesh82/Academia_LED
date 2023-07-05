@@ -172,14 +172,21 @@ public class StudentController implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Logout successfully");
                     Login lp = new Login();
                     lp.setVisible(true);
-                    stupage.dispose(); 
+                            stupage.dispose(); 
                 } else if (option == JOptionPane.NO_OPTION) {
                         JOptionPane.getRootFrame().dispose();
     
     }
             } else if (selectedOption.equals("Reset Password")) {
+                int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to reset password?", "Reset Password", JOptionPane.YES_NO_OPTION);
+                    if (option == JOptionPane.YES_OPTION) {
                     ResetPassword reset = new ResetPassword();
                     reset.setVisible(true);
+                    
+                } else if (option == JOptionPane.NO_OPTION) {
+                        JOptionPane.getRootFrame().dispose();
+                
+                    
             }
         }
         
@@ -191,6 +198,7 @@ public class StudentController implements ActionListener {
         if (e.getSource() == stupage.btnRefresh) {
             refreshTable();
         }
+    }
     }
     
     public void clear()
