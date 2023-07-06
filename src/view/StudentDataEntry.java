@@ -1064,88 +1064,110 @@ public class StudentDataEntry extends javax.swing.JFrame {
 
         jPanelMarksheet.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        marksheetTitle.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
+        marksheetTitle.setFont(new java.awt.Font("Old English Text MT", 1, 48)); // NOI18N
         marksheetTitle.setForeground(new java.awt.Color(46, 85, 148));
         marksheetTitle.setText("Marksheet");
-        jPanelMarksheet.add(marksheetTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 220, 30));
+        jPanelMarksheet.add(marksheetTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 290, 50));
 
+        jLabelmarkCourse1.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         jLabelmarkCourse1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(jLabelmarkCourse1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 190, 40, 20));
 
+        jLabelmarkCourse2.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         jLabelmarkCourse2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(jLabelmarkCourse2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 230, 40, 20));
 
+        jLabelmarkCourse3.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         jLabelmarkCourse3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(jLabelmarkCourse3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 270, 40, 20));
 
+        jLabelmarkCourse4.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         jLabelmarkCourse4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(jLabelmarkCourse4, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 310, 40, 20));
 
+        jLabelmarkCourse5.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         jLabelmarkCourse5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(jLabelmarkCourse5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 350, 40, 20));
 
-        jLabelmarkPercentage.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        jLabelmarkPercentage.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         jLabelmarkPercentage.setForeground(new java.awt.Color(255, 255, 255));
         jLabelmarkPercentage.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanelMarksheet.add(jLabelmarkPercentage, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 90, 30));
+        jPanelMarksheet.add(jLabelmarkPercentage, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 110, 30));
+
+        remarksInput.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         jPanelMarksheet.add(remarksInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 350, 150));
 
+        passMarksSub5.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         passMarksSub5.setText("40");
         passMarksSub5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(passMarksSub5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 350, 20, 20));
 
+        passMarksSub4.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         passMarksSub4.setText("40");
         passMarksSub4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(passMarksSub4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 310, 20, 20));
 
+        passMarksSub3.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         passMarksSub3.setText("40");
         passMarksSub3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(passMarksSub3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 270, 20, 20));
 
+        passMarksSub2.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         passMarksSub2.setText("40");
         passMarksSub2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(passMarksSub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 230, 20, 20));
 
+        passMarksSub1.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         passMarksSub1.setText("40");
         passMarksSub1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(passMarksSub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, 20, 20));
 
+        fullMarksSub5.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         fullMarksSub5.setText("100");
         fullMarksSub5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(fullMarksSub5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, 30, 20));
 
+        fullMarksSub4.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         fullMarksSub4.setText("100");
         fullMarksSub4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(fullMarksSub4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 30, 20));
 
+        fullMarksSub1.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         fullMarksSub1.setText("100");
         fullMarksSub1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(fullMarksSub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 30, 20));
 
+        fullMarksSub2.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         fullMarksSub2.setText("100");
         fullMarksSub2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(fullMarksSub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 230, 30, 20));
 
+        fullMarksSub3.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         fullMarksSub3.setText("100");
         fullMarksSub3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(fullMarksSub3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 30, 20));
 
+        sub5_Input.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         sub5_Input.setText("Subject 5");
         sub5_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(sub5_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 90, 20));
 
+        sub1_Input.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         sub1_Input.setText("Subject 1");
         sub1_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(sub1_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 90, 20));
 
+        sub2_Input.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         sub2_Input.setText("Subject 2");
         sub2_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(sub2_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 90, 20));
 
+        sub3_Input.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         sub3_Input.setText("Subject 3");
         sub3_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(sub3_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 90, 20));
 
+        subject5_Input.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         subject5_Input.setText("Subject 4");
         subject5_Input.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(subject5_Input, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 90, 20));
@@ -1154,64 +1176,64 @@ public class StudentDataEntry extends javax.swing.JFrame {
         totalPercentageInput.setForeground(new java.awt.Color(255, 255, 255));
         jPanelMarksheet.add(totalPercentageInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 110, 30));
 
-        jLabel23.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Total Percentage: ");
-        jPanelMarksheet.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 540, 110, 30));
+        jPanelMarksheet.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 540, 130, 30));
 
-        jLabel22.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("NSimSun", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Obtained Marks");
-        jPanelMarksheet.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 140, 110, 20));
+        jPanelMarksheet.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 140, -1, 30));
 
-        jLabel21.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("NSimSun", 1, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Pass Marks");
-        jPanelMarksheet.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 140, 60, 20));
+        jPanelMarksheet.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 140, 90, 30));
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("NSimSun", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Full Marks");
-        jPanelMarksheet.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, 60, 20));
+        jPanelMarksheet.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 90, 30));
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("NSimSun", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Subject");
-        jPanelMarksheet.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 136, 50, 30));
+        jPanelMarksheet.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 80, 30));
 
-        studentInfo_Title.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        studentInfo_Title.setFont(new java.awt.Font("NSimSun", 1, 11)); // NOI18N
         studentInfo_Title.setForeground(new java.awt.Color(255, 255, 255));
-        studentInfo_Title.setText("Remarks");
-        jPanelMarksheet.add(studentInfo_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
+        studentInfo_Title.setText("Remarks:");
+        jPanelMarksheet.add(studentInfo_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 346, 60, -1));
 
-        studentInfo_Title1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        studentInfo_Title1.setFont(new java.awt.Font("NSimSun", 1, 18)); // NOI18N
         studentInfo_Title1.setForeground(new java.awt.Color(255, 255, 255));
         studentInfo_Title1.setText("Student Information");
-        jPanelMarksheet.add(studentInfo_Title1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+        jPanelMarksheet.add(studentInfo_Title1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, 30));
 
-        jLabelmarkStdID.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabelmarkStdID.setFont(new java.awt.Font("NSimSun", 1, 14)); // NOI18N
         jLabelmarkStdID.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelMarksheet.add(jLabelmarkStdID, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 40, 20));
+        jPanelMarksheet.add(jLabelmarkStdID, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 80, 20));
 
-        jLabelmarkStdName.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabelmarkStdName.setFont(new java.awt.Font("NSimSun", 1, 14)); // NOI18N
         jLabelmarkStdName.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelMarksheet.add(jLabelmarkStdName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 170, 20));
+        jPanelMarksheet.add(jLabelmarkStdName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 210, 20));
 
-        jLabelmarkRank.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabelmarkRank.setFont(new java.awt.Font("NSimSun", 1, 14)); // NOI18N
         jLabelmarkRank.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelMarksheet.add(jLabelmarkRank, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 40, 20));
+        jPanelMarksheet.add(jLabelmarkRank, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 80, 20));
 
-        rank.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        rank.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         rank.setForeground(new java.awt.Color(255, 255, 255));
         rank.setText("Rank: ");
         jPanelMarksheet.add(rank, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
 
-        sid.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        sid.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         sid.setForeground(new java.awt.Color(255, 255, 255));
         sid.setText("Student Name: ");
         jPanelMarksheet.add(sid, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
 
-        sname.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        sname.setFont(new java.awt.Font("NSimSun", 1, 12)); // NOI18N
         sname.setForeground(new java.awt.Color(255, 255, 255));
         sname.setText("Student ID: ");
         jPanelMarksheet.add(sname, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
@@ -1219,7 +1241,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/softwarica_logo.png"))); // NOI18N
         jPanelMarksheet.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 430, 100));
 
-        jLabelMarksheet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/MarksheetPrintPage.png"))); // NOI18N
+        jLabelMarksheet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/Marksheet Print Page.png"))); // NOI18N
         jLabelMarksheet.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanelMarksheet.add(jLabelMarksheet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 600));
 
@@ -1437,7 +1459,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
         btnFeeAdd.setText("Add");
         btnFeeAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnFeeAdd.setBorderPainted(false);
-        jPanel9.add(btnFeeAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 590, 90, 40));
+        jPanel9.add(btnFeeAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 540, 90, 40));
 
         feeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1452,7 +1474,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(feeTable);
 
-        jPanel9.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 940, -1));
+        jPanel9.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 940, -1));
 
         btnFeeUpdate.setBackground(new java.awt.Color(63, 149, 187));
         btnFeeUpdate.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
@@ -1460,7 +1482,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
         btnFeeUpdate.setText("Update");
         btnFeeUpdate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnFeeUpdate.setBorderPainted(false);
-        jPanel9.add(btnFeeUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 590, 90, 40));
+        jPanel9.add(btnFeeUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 540, 90, 40));
 
         btnFeePrint.setBackground(new java.awt.Color(190, 146, 32));
         btnFeePrint.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
@@ -1468,7 +1490,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
         btnFeePrint.setText("Print");
         btnFeePrint.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnFeePrint.setBorderPainted(false);
-        jPanel9.add(btnFeePrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 590, 90, 40));
+        jPanel9.add(btnFeePrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 540, 90, 40));
 
         btnFeeDelete.setBackground(new java.awt.Color(209, 76, 76));
         btnFeeDelete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
@@ -1476,7 +1498,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
         btnFeeDelete.setText("Delete");
         btnFeeDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnFeeDelete.setBorderPainted(false);
-        jPanel9.add(btnFeeDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 590, 90, 40));
+        jPanel9.add(btnFeeDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 540, 90, 40));
 
         btnFeeRefresh.setBackground(new java.awt.Color(25, 147, 67));
         btnFeeRefresh.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
@@ -1484,19 +1506,19 @@ public class StudentDataEntry extends javax.swing.JFrame {
         btnFeeRefresh.setText("Refresh");
         btnFeeRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnFeeRefresh.setBorderPainted(false);
-        jPanel9.add(btnFeeRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 90, 90, 30));
+        jPanel9.add(btnFeeRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 40, 90, 30));
 
         txtFeeStudentSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFeeStudentSearchActionPerformed(evt);
             }
         });
-        jPanel9.add(txtFeeStudentSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 180, 30));
+        jPanel9.add(txtFeeStudentSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 180, 30));
 
         jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setText("Search:");
-        jPanel9.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, -1, -1));
+        jPanel9.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
 
         btnSearchTable.setBackground(new java.awt.Color(60, 131, 196));
         btnSearchTable.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
@@ -1504,7 +1526,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
         btnSearchTable.setText("Search");
         btnSearchTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSearchTable.setBorderPainted(false);
-        jPanel9.add(btnSearchTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 90, 60, 30));
+        jPanel9.add(btnSearchTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 40, 60, 30));
 
         btnFeeSearch.setBackground(new java.awt.Color(60, 131, 196));
         btnFeeSearch.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
@@ -1646,7 +1668,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
 
         tableFrame.setBackground(new java.awt.Color(35, 75, 105));
         tableFrame.setOpaque(true);
-        jPanel9.add(tableFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 1000, 580));
+        jPanel9.add(tableFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 1000, 630));
 
         inputBoxFrame.setBackground(new java.awt.Color(35, 75, 105));
         inputBoxFrame.setOpaque(true);
@@ -1669,7 +1691,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
                 btnPrintBillActionPerformed(evt);
             }
         });
-        bill.add(btnPrintBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 280, 40));
+        bill.add(btnPrintBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 280, 40));
 
         btnSearchBill.setBackground(new java.awt.Color(60, 131, 196));
         btnSearchBill.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
@@ -1677,17 +1699,17 @@ public class StudentDataEntry extends javax.swing.JFrame {
         btnSearchBill.setText("Search");
         btnSearchBill.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSearchBill.setBorderPainted(false);
-        bill.add(btnSearchBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 90, 30));
-        bill.add(txtBillStudentID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 180, 30));
+        bill.add(btnSearchBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 90, 30));
+        bill.add(txtBillStudentID, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 180, 30));
 
         jLabel80.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
         jLabel80.setForeground(new java.awt.Color(255, 255, 255));
         jLabel80.setText("Enter Student ID to search:");
-        bill.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        bill.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, -1, -1));
 
         jLabel79.setBackground(new java.awt.Color(13, 71, 109));
         jLabel79.setOpaque(true);
-        bill.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 340, 200));
+        bill.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 340, 220));
 
         jLabel81.setBackground(new java.awt.Color(78, 171, 202));
         jLabel81.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 24)); // NOI18N
