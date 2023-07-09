@@ -17,7 +17,7 @@ public class LoginController implements ActionListener {
     private Login loginpage;
     private ForgotPassword forgotPage;
 
-    public LoginController(LoginModel mod, LoginDAO modDAO, Login loginpage) {
+    public LoginController(LoginDAO modDAO, Login loginpage, LoginModel mod) {
         this.mod = mod;
         this.modDAO = modDAO;
         this.loginpage = loginpage;

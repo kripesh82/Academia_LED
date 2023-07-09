@@ -26,7 +26,7 @@ public class Login extends javax.swing.JFrame {
         LoginModel model = new LoginModel();
         LoginDAO dao = new LoginDAO();
         
-        controller = new LoginController(model, dao, this);
+        controller = new LoginController(dao, this, model);
         
         controller.start();
         
