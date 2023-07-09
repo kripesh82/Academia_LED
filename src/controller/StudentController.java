@@ -189,7 +189,7 @@ public class StudentController implements ActionListener {
                     
             }
         }
-        
+        }
         
         if(e.getSource() == stupage.btnClear){
             clear();
@@ -198,7 +198,7 @@ public class StudentController implements ActionListener {
         if (e.getSource() == stupage.btnRefresh) {
             refreshTable();
         }
-    }
+    
     }
     
     public void clear()
