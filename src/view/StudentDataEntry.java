@@ -328,9 +328,14 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 20)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("Oh Yes");
+        jTextField1.setText("John Doe");
         jTextField1.setBorder(null);
         jTextField1.setCaretColor(new java.awt.Color(39, 68, 114));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -1651,7 +1656,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
         btnFeeClear.setText("Clear");
         btnFeeClear.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnFeeClear.setBorderPainted(false);
-        jPanel9.add(btnFeeClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, 60, 30));
+        jPanel9.add(btnFeeClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 580, 60, 30));
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
@@ -1815,7 +1820,7 @@ public class StudentDataEntry extends javax.swing.JFrame {
         jLabelBillFirstName.setBackground(new java.awt.Color(35, 75, 105));
         jLabelBillFirstName.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
         jLabelBillFirstName.setForeground(new java.awt.Color(2, 50, 75));
-        jLabelBillFirstName.setText("Samman Brrrr-Al");
+        jLabelBillFirstName.setText("Samman Baral");
         jpanelBill.add(jLabelBillFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 330, -1));
 
         jLabelBillStudentID.setBackground(new java.awt.Color(35, 75, 105));
@@ -1927,13 +1932,18 @@ public class StudentDataEntry extends javax.swing.JFrame {
 
         jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 980, 610));
 
+        jButtonatDelete.setBackground(new java.awt.Color(221, 26, 26));
+        jButtonatDelete.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
+        jButtonatDelete.setForeground(new java.awt.Color(255, 255, 255));
         jButtonatDelete.setText("Delete Data on Table");
+        jButtonatDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonatDelete.setBorderPainted(false);
         jButtonatDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonatDeleteActionPerformed(evt);
             }
         });
-        jPanel10.add(jButtonatDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 603, 170, 50));
+        jPanel10.add(jButtonatDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 600, 170, 50));
 
         jTabbedPane1.addTab("Attendance Search", jPanel10);
 
@@ -2156,6 +2166,10 @@ public class StudentDataEntry extends javax.swing.JFrame {
     private void jButtonatDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonatDeleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonatDeleteActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments

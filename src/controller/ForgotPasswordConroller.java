@@ -53,7 +53,7 @@ public class ForgotPasswordConroller implements ActionListener {
         }
     }
 
-    private boolean validateFields() {
+    public boolean validateFields() {
         String username = fpPage.txtUsername.getText();
         String security = fpPage.txtSecurityQuestion.getText();
         String newPassword = fpPage.txtNewPassword.getText();

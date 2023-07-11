@@ -53,7 +53,7 @@ public class ResetPasswordController implements ActionListener {
         }
     }
 
-    private boolean validateFields() {
+    public boolean validateFields() {
         String username = resetPage.txtUsernameReset.getText();
         String oldPassword = resetPage.txtOldPassword.getText();
         String newPassword = resetPage.txtNewPassword.getText();
