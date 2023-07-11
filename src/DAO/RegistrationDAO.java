@@ -7,8 +7,47 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.RegistrationModel;
+import java.sql.*;
 
 public class RegistrationDAO extends DbConnection {
+    
+    
+        public RegistrationDAO() {
+        createUsersTableIfNotExists();
+    }
+
+    private void createUsersTableIfNotExists() {
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            conn = dbConnect();
+            stmt = conn.createStatement();
+
+            String sql = "CREATE TABLE IF NOT EXISTS users (" +
+                    "first_name VARCHAR(50) NOT NULL," +
+                    "last_name VARCHAR(50) NOT NULL," +
+                    "username VARCHAR(50) NOT NULL," +
+                    "staff_id INT NOT NULL," +
+                    "password VARCHAR(100) NOT NULL," +
+                    "security VARCHAR(50) NOT NULL," +
+                    "PRIMARY KEY (username)" +
+                    ")";
+
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.err.println("Error creating 'users' table: " + e.getMessage());
+        } finally {
+            try {
+                if (stmt != null)
+                    stmt.close();
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
+        }
+    }
 
 public boolean register(RegistrationModel mod) {
     PreparedStatement ps = null;

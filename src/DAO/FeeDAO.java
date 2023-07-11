@@ -18,6 +18,48 @@ import model.FeeModel;
  * @author User
  */
 public class FeeDAO extends DbConnection {
+    
+    
+        public FeeDAO() {
+        createFeeTableIfNotExists();
+    }
+
+    private void createFeeTableIfNotExists() {
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            conn = dbConnect();
+            stmt = conn.createStatement();
+
+            String sql = "CREATE TABLE IF NOT EXISTS fee (" +
+                    "student_id INT NOT NULL," +
+                    "first_name VARCHAR(50)," +
+                    "last_name VARCHAR(50)," +
+                    "months VARCHAR(20)," +
+                    "tution FLOAT," +
+                    "eca FLOAT," +
+                    "mic FLOAT," +
+                    "other FLOAT," +
+                    "due FLOAT," +
+                    "total FLOAT," +
+                    "FOREIGN KEY (student_id) REFERENCES students (student_id)" +
+                    ")";
+
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.err.println("Error creating 'fee' table: " + e.getMessage());
+        } finally {
+            try {
+                if (stmt != null)
+                    stmt.close();
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
+        }
+    }
 
     public boolean add(FeeModel mod) {
         PreparedStatement ps = null;

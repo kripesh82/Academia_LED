@@ -7,9 +7,45 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Date;
+import java.sql.*;
 import model.AttendanceModel;
 
 public class AttendanceDAO extends DbConnection {
+    
+    public AttendanceDAO() {
+        createAttendanceTableIfNotExists();
+    }
+
+    private void createAttendanceTableIfNotExists() {
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            conn = dbConnect();
+            stmt = conn.createStatement();
+
+            String sql = "CREATE TABLE IF NOT EXISTS attendance (" +
+                    "atStudent_id INT," +
+                    "atStudent_Name VARCHAR(100)," +
+                    "atdate DATE," +
+                    "attendance VARCHAR(20)" +
+                    ")";
+
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.err.println("Error creating 'attendance' table: " + e.getMessage());
+        } finally {
+            try {
+                if (stmt != null)
+                    stmt.close();
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
+        }
+    }
+    
     public boolean addAttendanceData(int studentId, String studentName, String date, String attendance) {
         PreparedStatement ps = null;
         Connection conn = dbConnect();

@@ -15,6 +15,47 @@ import java.util.List;
 import model.ResultModel;
 
 public class ResultDAO extends DbConnection {
+    
+        public ResultDAO() {
+        createResultTableIfNotExists();
+    }
+
+    private void createResultTableIfNotExists() {
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            conn = dbConnect();
+            stmt = conn.createStatement();
+
+            String sql = "CREATE TABLE IF NOT EXISTS result (" +
+                    "student_id INT NOT NULL," +
+                    "first_name VARCHAR(50)," +
+                    "last_name VARCHAR(50)," +
+                    "course1 FLOAT," +
+                    "course2 FLOAT," +
+                    "course3 FLOAT," +
+                    "course4 FLOAT," +
+                    "course5 FLOAT," +
+                    "percentage DOUBLE," +
+                    "ranks INT," +
+                    "FOREIGN KEY (student_id) REFERENCES students (student_id)" +
+                    ")";
+
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.err.println("Error creating 'result' table: " + e.getMessage());
+        } finally {
+            try {
+                if (stmt != null)
+                    stmt.close();
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
+        }
+    }
 
     public boolean add(ResultModel mod2) {
         PreparedStatement ps = null;

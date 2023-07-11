@@ -10,6 +10,43 @@ import java.util.List;
 import model.StudentModel;
 
 public class StudentDAO extends DbConnection {
+    
+        public StudentDAO() {
+        createStudentTableIfNotExists();
+    }
+
+    private void createStudentTableIfNotExists() {
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            conn = dbConnect();
+            stmt = conn.createStatement();
+
+            String sql = "CREATE TABLE IF NOT EXISTS students (" +
+                    "student_id INT PRIMARY KEY AUTO_INCREMENT," +
+                    "first_name VARCHAR(50)," +
+                    "last_name VARCHAR(50)," +
+                    "age INT," +
+                    "address VARCHAR(100)," +
+                    "email VARCHAR(100)," +
+                    "phone_number VARCHAR(20)" +
+                    ")";
+
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.err.println("Error creating 'students' table: " + e.getMessage());
+        } finally {
+            try {
+                if (stmt != null)
+                    stmt.close();
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
+        }
+    }
 
     public boolean add(StudentModel mod) {
         PreparedStatement ps = null;
