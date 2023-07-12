@@ -143,6 +143,7 @@ public class StudentController implements ActionListener {
                     stupage.txtFirstName.setText(mod.getFirst_name());
                     stupage.txtLastName.setText(mod.getLast_name());
                     stupage.txtPhoneNumber.setText(mod.getPhone_number());
+                    refreshTableForStudent();
                    
                 } else {
                     JOptionPane.showMessageDialog(null, "No Record Found");
@@ -233,6 +234,23 @@ public class StudentController implements ActionListener {
         }
     }    
     
+        private void refreshTableForStudent() {
+        DefaultTableModel model = (DefaultTableModel) jTable.getModel();
+        model.setRowCount(0); // Clear existing table data
+
+        if (validateIDField()) {
+            mod.setStudent_id(Integer.parseInt(stupage.txtID.getText()));
+
+            if (modDAO.search(mod)) {
+                Object[] row = { mod.getStudent_id(), mod.getFirst_name(), mod.getLast_name(),
+                    mod.getAge(), mod.getAddress(), mod.getEmail(), mod.getPhone_number()};
+                model.addRow(row);
+            } else {
+                JOptionPane.showMessageDialog(null, "No Record Found");
+                clear();
+            }
+        }
+    }
     private boolean validateFields() {
         if (stupage.txtFirstName.getText().isEmpty() || stupage.txtLastName.getText().isEmpty()
                 || stupage.txtAge.getText().isEmpty() || stupage.txtAddress.getText().isEmpty()
