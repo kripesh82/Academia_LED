@@ -275,19 +275,24 @@ public class ResultController implements ActionListener {
             JOptionPane.showMessageDialog(null, "Please fill in all the fields.");
             return false;
         }
-        
         try {
-        Float.parseFloat(stupage2.jTextFieldCourse1.getText());
-        Float.parseFloat(stupage2.jTextFieldCourse2.getText());
-        Float.parseFloat(stupage2.jTextFieldCourse3.getText());
-        Float.parseFloat(stupage2.jTextFieldCourse4.getText());
-        Float.parseFloat(stupage2.jTextFieldCourse5.getText());
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(null, "Courses must be floating-point numbers.");
-        return false;
-    }
-        
-        return true;
+            float course1 = Float.parseFloat(stupage2.jTextFieldCourse1.getText());
+            float course2 = Float.parseFloat(stupage2.jTextFieldCourse2.getText());
+            float course3 = Float.parseFloat(stupage2.jTextFieldCourse3.getText());
+            float course4 = Float.parseFloat(stupage2.jTextFieldCourse4.getText());
+            float course5 = Float.parseFloat(stupage2.jTextFieldCourse5.getText());
+            
+            if (course1 < 0 || course1 > 100 || course2 < 0 || course2 > 100 || course3 < 0 || course3 > 100
+                    || course4 < 0 || course4 > 100 || course5 < 0 || course5 > 100) {
+                JOptionPane.showMessageDialog(null, "Please enter marks between 0-100");
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Marks must be floating-point numbers.");
+            return false;
+        }
+
+        return true;        
     }
     
     private boolean validateIDField() {
