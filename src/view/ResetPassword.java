@@ -104,11 +104,11 @@ public class ResetPassword extends javax.swing.JFrame {
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/logo_transparent_legit (1).png"))); // NOI18N
         getContentPane().add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 30, 280, 70));
 
-        jLabel8.setBackground(new java.awt.Color(35, 75, 105));
+        jLabel8.setBackground(new java.awt.Color(54, 111, 154));
         jLabel8.setOpaque(true);
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 340, 330));
 
-        jLabel9.setBackground(new java.awt.Color(35, 75, 105));
+        jLabel9.setBackground(new java.awt.Color(81, 175, 206));
         jLabel9.setOpaque(true);
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 330, 330));
 

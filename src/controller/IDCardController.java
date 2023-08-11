@@ -21,6 +21,12 @@ import javax.swing.JFileChooser;
 import java.io.File;
 import javax.swing.ImageIcon;
 import java.awt.Image;
+import com.toedter.calendar.JDateChooser;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
+
+
 
 /**
  *
@@ -34,6 +40,8 @@ public class IDCardController implements ActionListener{
     private JPanel jPanelIDCard;
     private int IDCardWidth = 990;
     private int IDCardHeight = 600;    
+    private JDateChooser validityDate;
+    private boolean studentIdSearched = false;
     
     public IDCardController(StudentModel IDmod, IDCardDAO idDAO, StudentDataEntry IDpage)
     {
@@ -46,7 +54,10 @@ public class IDCardController implements ActionListener{
         this.jPanelIDCard = IDpage.jPanelIDCard;
         this.jButtonPicture = IDpage.jButtonPicture;
         this.jButtonPicture.addActionListener(this);
+        this.IDpage.addDateToID.addActionListener(this);
         this.IDpage.jButtonIDClear.addActionListener(this);
+        this.validityDate = IDpage.validityDate;
+
     }
     
     public void startID()
@@ -72,10 +83,11 @@ public class IDCardController implements ActionListener{
                     IDpage.jLabelIDAge.setText(String.valueOf(IDmod.getAge()));
                     IDpage.jLabelIDEmail.setText(IDmod.getEmail());
                     IDpage.jLabelIDAddress.setText(IDmod.getAddress());
-                   
+                    studentIdSearched = true;
                 } else {
                     JOptionPane.showMessageDialog(null, "No Record Found");
                     clearID();
+                    studentIdSearched = false;
                 }   
             }
             
@@ -83,7 +95,13 @@ public class IDCardController implements ActionListener{
         
         if(e.getSource() == IDpage.jButtonIDPrint)
         {
-            printIDCard();
+           if (validateStdIDField()) {
+                if (validatePrintConditions()) { // Check validity date and picture
+                    printIDCard();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please add validity date and select a picture.");
+                }
+            }
         }
 
             if (e.getSource() == jButtonPicture) {
@@ -114,6 +132,24 @@ public class IDCardController implements ActionListener{
                     IDpage.jPanelIDCard.repaint();
                 }
             }
+                if (e.getSource() == IDpage.addDateToID) {
+                    if (studentIdSearched) {
+                        if (validateStdIDField()) {
+                            // Get the selected date from the JDateChooser
+                            var selectedDate = IDpage.validityDate.getDate();
+
+                            // Format the date as needed (e.g., "yyyy-MM-dd")
+                            var dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                            var formattedDate = dateFormat.format(selectedDate);
+
+                            // Set the formatted date as text in inputDate1
+                            IDpage.inputDate1.setText(formattedDate);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Please search a student ID first.");
+                    }
+                }
+                
             
             if (e.getSource() == IDpage.jButtonIDClear){
                 clearID();
@@ -121,7 +157,15 @@ public class IDCardController implements ActionListener{
 
 
 
-    } 
+    }
+    private boolean validatePrintConditions() {
+        if (IDpage.validityDate.getDate() == null) {
+            return false;
+        }
+
+        ImageIcon icon = (ImageIcon) IDpage.jLabelPicture.getIcon();
+        return icon != null && icon.getImage() != null;
+    }
     public void clearID()
     {
         IDpage.jLabelIDStdID.setText("");
@@ -130,6 +174,8 @@ public class IDCardController implements ActionListener{
         IDpage.jLabelIDAddress.setText("");
         IDpage.jLabelIDEmail.setText("");
         IDpage.jTextFieldIDStdSearch.setText("");
+        IDpage.inputDate1.setText("");
+        IDpage.validityDate.setDate(null);
     }
     private boolean validateStdIDField() {
         if (IDpage.jTextFieldIDStdSearch.getText().isEmpty()) {

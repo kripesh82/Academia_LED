@@ -3,10 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/SMASHED%20TOMATOES/OneDrive/Documents/NetBeansProjects/Academia_LED/src/connection/DbConnection.java</file>
             <file>file:/C:/Users/SMASHED%20TOMATOES/OneDrive/Documents/NetBeansProjects/Academia_LED/src/DAO/AttendanceDAO.java</file>
             <file>file:/C:/Users/SMASHED%20TOMATOES/OneDrive/Documents/NetBeansProjects/Academia_LED/src/view/StudentDataEntry.java</file>
             <file>file:/C:/Users/SMASHED%20TOMATOES/OneDrive/Documents/NetBeansProjects/Academia_LED/src/controller/StudentController.java</file>
+=======
+            <file>file:/C:/Users/neera/Downloads/Academia_LED-master%20(1)/Academia_LED-master/src/view/StudentDataEntry.java</file>
+            <file>file:/C:/Users/neera/Downloads/Academia_LED-master%20(1)/Academia_LED-master/src/DAO/ResultDAO.java</file>
+>>>>>>> 99e52877768dc55b64d219dc7ce1c127aff63912
         </group>
     </open-files>
 </project-private>

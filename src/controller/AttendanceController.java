@@ -136,6 +136,7 @@ public class AttendanceController implements ActionListener {
             Object[] row = {student.getStudent_id(), (student.getFirst_name()+" "+ student.getLast_name())};
             atmodel.addRow(row);
         }
+        atPage.dateChooser.setDate(null);
         }
 
     private void searchAttendanceByStudentAndDate() {
