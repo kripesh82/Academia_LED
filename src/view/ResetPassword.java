@@ -108,7 +108,7 @@ public class ResetPassword extends javax.swing.JFrame {
         jLabel8.setOpaque(true);
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 340, 330));
 
-        jLabel9.setBackground(new java.awt.Color(81, 175, 206));
+        jLabel9.setBackground(new java.awt.Color(116, 184, 207));
         jLabel9.setOpaque(true);
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 330, 330));
 

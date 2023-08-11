@@ -50,7 +50,7 @@ public class FeeBillController implements ActionListener {
         
     public void startBill()
     {
-        feepage.setTitle("Student Data Entry");
+        feepage.setTitle("Academia");
         feepage.setLocationRelativeTo(null);
         feepage.txtBillStudentID.setVisible(true);
         clear();
