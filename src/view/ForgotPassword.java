@@ -57,18 +57,18 @@ public class ForgotPassword extends javax.swing.JFrame {
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 1280, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("What is the name of your pet??");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, -1, -1));
 
-        btnChangePass.setBackground(new java.awt.Color(190, 146, 32));
+        btnChangePass.setBackground(new java.awt.Color(106, 169, 108));
         btnChangePass.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnChangePass.setForeground(new java.awt.Color(255, 255, 255));
         btnChangePass.setText("Change Password");
         btnChangePass.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnChangePass.setBorderPainted(false);
-        getContentPane().add(btnChangePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 640, 310, 60));
+        getContentPane().add(btnChangePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 640, 680, 60));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -106,7 +106,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         line.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/line.png"))); // NOI18N
         getContentPane().add(line, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 122, 1074, 14));
 
-        jLabel8.setBackground(new java.awt.Color(35, 75, 105));
+        jLabel8.setBackground(new java.awt.Color(116, 184, 207));
         jLabel8.setOpaque(true);
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 300, 350, 320));
 
